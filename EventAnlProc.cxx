@@ -12,8 +12,8 @@
 // in Go4License.txt file which is part of the distribution.
 //-----------------------------------------------------------------------
 
-// Uncomment this to align the AIDA ASICs with a pulser
-//  Only needed if the ASICs didn't align properly
+//Uncomment this to align the AIDA ASICs with a pulser
+//Only needed if the ASICs didn't align properly
 //#define AIDA_PULSER_ALIGN
 #include "EventAnlProc.h"
 
@@ -135,7 +135,6 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
 
   }
 
-
   static bool create =false;
   //Create histograms
   if (!create){
@@ -145,7 +144,6 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
     //if(Used_Systems[2] && bPLASTIC_TWINPEAKS==0)  Make_Plastic_Tamex_Histos();
     if(Used_Systems[2] && bPLASTIC_TWINPEAKS==1)  Make_Plastic_Twinpeaks_Histos();
     if(Used_Systems[5]) Make_Germanium_Histos();
-    //if(Used_Systems[6]) Make_Finger_Histos();
   }
 
   create = true;
@@ -312,7 +310,7 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
   }
 
 
-  ///-------------------------------- /**AIDA Input**/ --------------------------------///
+///--------------------------------------/**AIDA Input**/------------------------------------------///
   if (Used_Systems[1]&&  PrcID_Conv[1]==1){
     ProcessAida(pInput, pOutput);
     Aida_Fired = 0;
@@ -370,8 +368,8 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
 //   Process_Plastic_Tamex_Histos(pInput,pOutput);
 // 
 //}
+
 ///--------------------------------------/**bPlastic TwinPeaks TAMEX Input**/------------------------------------------///
-  
   if (PrcID_Conv[2] ==2 && Used_Systems[2]==1 && bPLASTIC_TWINPEAKS==1){
 
       for(int i=0; i<bPLASTIC_TAMEX_HITS; i++){
@@ -420,7 +418,7 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
       Process_Plastic_Twinpeaks_Histos(pInput,pOutput); 
       }
   }
-  ///--------------------------------------/**Germanium Input**/------------------------------------------///
+///--------------------------------------/**Germanium Input**/------------------------------------------///
   GeFired = -1;
   RefTGe=0;
   //Ge_WR = 0;
@@ -458,7 +456,7 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
       }
       // int id_Ge = det * Germanium_CRYSTALS +  crys;
 
-      if(id==1) {
+      if(id==1){
         RefTGe=GeT[i];
         RefCFDGe=GeCF_T[i];
       }
@@ -474,158 +472,89 @@ Bool_t EventAnlProc::BuildEvent(TGo4EventElement* dest)
     Process_Germanium_Histos(pOutput);
   }
 
- ///--------------------------------------/**Finger Input**/------------------------------------------///
+///--------------------------------------/**FINGER Input**/------------------------------------------///
 
   pOutput->SetValid(isValid);
   return isValid;
 
-}  //End of BuildEvent
+}  
+//End of BuildEvent
 
 
 
 
-/**----------------------------------------------------------------------------------------------**/
- /**--------------------------------------    White Rabbit   ---------------------------------------------**/
- /**----------------------------------------------------------------------------------------------**/
- void EventAnlProc::Make_WR_Histos(){
-//Added on 01/03 from MP to check the subsystems' deadtime
-   //hFat_deadtime = MakeTH1('I',"WR/DeadTime/Fat_deadtime","Dead Time Fatima VME", 500, 0, 500,"WR dT(Fatima VME)[us]", "Counts");
+///--------------------------------------/**White Rabbit**/------------------------------------------///
+void EventAnlProc::Make_WR_Histos(){
+  //Added on 01/03 from MP to check the subsystems' deadtime
 
-   //hFatTAM_deadtime = MakeTH1('I',"WR/DeadTime/FatTAM_deadtime","Dead Time Fatima TAMEX", 500, 0, 500,"WR dT(Fatima TAMEX)[us]", "Counts");
+  //hFat_deadtime = MakeTH1('I',"WR/DeadTime/Fat_deadtime","Dead Time Fatima VME", 500, 0, 500,"WR dT(Fatima VME)[us]", "Counts");
+  //hFatTAM_deadtime = MakeTH1('I',"WR/DeadTime/FatTAM_deadtime","Dead Time Fatima TAMEX", 500, 0, 500,"WR dT(Fatima TAMEX)[us]", "Counts");
 
-   hGe_deadtime = MakeTH1('I',"WR/DeadTime/HPGe_deadtime","Dead Time Germanium", 500, 0, 500,"WR dT(Germanium)[us]", "Counts");
+  hGe_deadtime = MakeTH1('I',"WR/DeadTime/HPGe_deadtime","Dead Time Germanium", 500, 0, 500,"WR dT(Germanium)[us]", "Counts");
 
-   hbPlast_deadtime = MakeTH1('I',"WR/DeadTime/bPlast_deadtime","Dead Time bPlastic", 500, 0, 500,"WR dT(bPlastic)[us]", "Counts");
+  hbPlast_deadtime = MakeTH1('I',"WR/DeadTime/bPlast_deadtime","Dead Time bPlastic", 500, 0, 500,"WR dT(bPlastic)[us]", "Counts");
 
-   hFRS_deadtime = MakeTH1('I',"WR/DeadTime/FRS_deadtime","Dead Time FRS", 500, 0, 500,"WR dT(FRS)[us]", "Counts");
+  hFRS_deadtime = MakeTH1('I',"WR/DeadTime/FRS_deadtime","Dead Time FRS", 500, 0, 500,"WR dT(FRS)[us]", "Counts");
 
-  // hbPlas_Fat_WRdT = MakeTH1('I',"WR/bPlast-FatimaVME_dT","White Rabbit bPlast-Fatima VME",10000,-10000,10000,"WR dT(bPlast-Fatima VME)[ns]", "Counts");
+  hbPlas_Ge_WRdT = MakeTH1('I',"WR/bPlast-Germanium_dT","White Rabbit bPlast-Germanium",10000,-50000,50000,"WR dT(bPlast-Germanium)[ns]", "Counts");
 
-   hbPlas_Ge_WRdT = MakeTH1('I',"WR/bPlast-Germanium_dT","White Rabbit bPlast-Germanium",10000,-50000,50000,"WR dT(bPlast-Germanium)[ns]", "Counts");
+  FRS_Ge_WRdT =  MakeTH1('I',"WR/Germanium-FRS_dT","White Rabbit FRS WR -Germanium WR ",10000,-50000,50000,"WR dT(Germanium-FRS)[ns]", "Counts");
 
- //  hFat_Ge_WRdT = MakeTH1('I',"WR/FatimaVME-Germanium_dT","White Rabbit Fatima-Germanium",10000,-10000,10000,"WR dT(Fatima-Germanium)Time[ns]", "Counts");
-
- //  hFatTAM_Ge_WRdT = MakeTH1('I',"WR/FatimaTAMEX-Germanium_dT","White Rabbit Fatima TAMEX-Germanium",10000,-10000,10000,"WR dT(Fatima Tamex-Germanium)Time[ns]", "Counts");
-
-   hFRS_Ge_WRdT =  MakeTH1('I',"WR/Germanium-FRS_dT","White Rabbit FRS WR -Germanium WR ",10000,-50000,50000,"WR dT(Germanium-FRS)[ns]", "Counts");
-
-   hFRS_bPlas_WRdT = MakeTH1('I',"WR/bPlast-FRS_dT","White Rabbit FRS_bPlas",10000,-50000,50000,"WR dT(bPlast-FRS)[ns]", "Counts");
-
-  // hFRS_FatVME_WRdT = MakeTH1('I',"WR/FatimaVME-FRS_dT","White Rabbit FRS_Fatima VME",10000,-10000,10000,"WR dT(Fatima VME-FRS)[ns]", "Counts");
-
-  // hFRS_FatTAM_WRdT = MakeTH1('I',"WR/FRS-FatimaTAMEX_dT","White Rabbit FRS_Fatima Tamex ",10000,-10000,10000,"WR dT(Fatima TAMEX-FRS)[ns]", "Counts");
-
- //  hFRS_FatVME_FatTAM = MakeTH1('I',"WR/FatimaVME-FatimaTAMEX_dT","White Rabbit dT Fatima VME - Fatima Tamex ",10000,-10000,10000,"WR dT(Fatima VME-Fatima TAMEX)[ns]", "Counts");
-
- //  hbPlast_FatTAM = MakeTH1('I',"WR/bPlast-FatimaTAMEX_dT","White Rabbit dT bPlast - Fatima Tamex ",10000,-10000,10000,"WR dT(bPlast-Fatima TAMEX)[ns]", "Counts");
-
-
+  hFRS_bPlas_WRdT = MakeTH1('I',"WR/bPlast-FRS_dT","White Rabbit FRS_bPlas",10000,-50000,50000,"WR dT(bPlast-FRS)[ns]", "Counts");
 }
- void EventAnlProc::Process_WR_Histos(EventUnpackStore* pInput){
-     /// FATIMA DEAD TIME
-/*
-       if (pInput->fFat_WR > 0) {
+ 
+void EventAnlProc::Process_WR_Histos(EventUnpackStore* pInput){
+  /// Germanium DEAD TIME
+  if (pInput->fGe_WR > 0){
+    if (lastGeWR == 0){
+      lastGeWR = pInput->fGe_WR;
+    } 
+    else{
+      hGe_deadtime->Fill((long long)(pInput->fGe_WR - lastGeWR)/1000);
+      lastGeWR = pInput->fGe_WR;
+    }
+  }
 
+  /// bPlastic DEAD TIME
+  if (pInput->fbPlas_WR > 0){
+    if (lastbPlastWR == 0){
+      lastbPlastWR = pInput->fbPlas_WR;
+    } 
+    else{
+      hbPlast_deadtime->Fill((long long)(pInput->fbPlas_WR - lastbPlastWR)/1000);
+      lastbPlastWR = pInput->fbPlas_WR;
+    }
+  }
 
-        if (lastFatWR == 0) {
-          lastFatWR = pInput->fFat_WR;
-        } else {
-
-          hFat_deadtime->Fill((long long)(pInput->fFat_WR - lastFatWR)/1000);
-          lastFatWR = pInput->fFat_WR;
-        }
+  /// FRS DEAD TIME
+    if (pInput->fFRS_WR > 0){
+      if (lastFRSWR == 0){
+        lastFRSWR = pInput->fFRS_WR;
       }
-
- /// FATIMA TAMEX DEAD TIME
-       if (pInput->fFat_Tamex_WR > 0) {
-
-
-        if (lastFatTAMWR == 0) {
-          lastFatTAMWR = pInput->fFat_Tamex_WR;
-        } else {
-
-          hFatTAM_deadtime->Fill((long long)(pInput->fFat_Tamex_WR - lastFatTAMWR)/1000);
-          lastFatTAMWR = pInput->fFat_Tamex_WR;
-        }
+      else{
+        hFRS_deadtime->Fill((long long)(pInput->fFRS_WR - lastFRSWR)/1000);
+        lastFRSWR = pInput->fFRS_WR;
       }
-*/
- /// Germanium DEAD TIME
-       if (pInput->fGe_WR > 0) {
+    }
 
-        if (lastGeWR == 0) {
-          lastGeWR = pInput->fGe_WR;
-        } else {
+  ///Aida deadtime in Correl proc
 
-          hGe_deadtime->Fill((long long)(pInput->fGe_WR - lastGeWR)/1000);
-          lastGeWR = pInput->fGe_WR;
-        }
-      }
-
-      /// bPlastic DEAD TIME
-       if (pInput->fbPlas_WR > 0) {
-
-        if (lastbPlastWR == 0) {
-          lastbPlastWR = pInput->fbPlas_WR;
-        } else {
-
-          hbPlast_deadtime->Fill((long long)(pInput->fbPlas_WR - lastbPlastWR)/1000);
-          lastbPlastWR = pInput->fbPlas_WR;
-        }
-      }
-
-       /// FRS DEAD TIME
-       if (pInput->fFRS_WR > 0) {
-
-        if (lastFRSWR == 0) {
-          lastFRSWR = pInput->fFRS_WR;
-        } else {
-
-          hFRS_deadtime->Fill((long long)(pInput->fFRS_WR - lastFRSWR)/1000);
-          lastFRSWR = pInput->fFRS_WR;
-        }
-      }
-
- ///Aida deadtime in Correl proc
-
-
-     ///WR dT(bPlas-Fatima)
- // if(pInput->fFat_WR>0 && pInput->fbPlas_WR>0)hbPlas_Fat_WRdT->Fill(pInput->fbPlas_WR -pInput->fFat_WR);
-
-    ///WR dT(bPlas-Germanium)
+  ///WR dT(bPlas-Germanium)
   if(pInput->fGe_WR>0 && pInput->fbPlas_WR>0)hbPlas_Ge_WRdT->Fill(pInput->fbPlas_WR - pInput->fGe_WR);
 
-   ///WR dT(Fatima VME -Germanium)
-//  if(pInput->fGe_WR>0 && pInput->fFat_WR>0)hFat_Ge_WRdT->Fill(pInput->fFat_WR - pInput->fGe_WR);
-
-   ///WR dT(Fatima TAMEX -Germanium)
-//  if(pInput->fGe_WR>0 && pInput->fFat_Tamex_WR>0)hFatTAM_Ge_WRdT->Fill(pInput->fFat_Tamex_WR - pInput->fGe_WR);
-
-   ///WR dT(Germanium - FRS)
+  ///WR dT(Germanium - FRS)
   if(pInput->fGe_WR>0 && pInput->fFRS_WR>0)hFRS_Ge_WRdT->Fill(pInput->fGe_WR - pInput->fFRS_WR );
 
-  ///WR dT(Fatima VME - FRS )
-//  if(pInput->fFat_WR>0 && pInput->fFRS_WR>0)hFRS_FatVME_WRdT->Fill(pInput->fFat_WR-pInput->fFRS_WR );
-
-  ///WR dT(FRS - Fatima TAMEX)
-//  if(pInput->fFat_Tamex_WR>0 && pInput->fFRS_WR>0)hFRS_FatTAM_WRdT->Fill( pInput->fFat_Tamex_WR-pInput->fFRS_WR );
-
-  ///WR dT(Fatima VME - Fatima TAMEX)
-//  if(pInput->fFat_Tamex_WR>0 && pInput->fFat_WR>0)hFRS_FatVME_FatTAM->Fill(pInput->fFat_WR - pInput->fFat_Tamex_WR);
-
-   ///WR dT(bPlast - Fatima TAMEX)
-//  if(pInput->fFat_Tamex_WR>0 && pInput->fbPlas_WR>0)hbPlast_FatTAM->Fill(pInput->fbPlas_WR - pInput->fFat_Tamex_WR);
-
-    ///WR dT(bPlast- FRS)
+  ///WR dT(bPlast- FRS)
   if(pInput->fbPlas_WR>0 && pInput->fFRS_WR>0)hFRS_bPlas_WRdT->Fill(pInput->fbPlas_WR-pInput->fFRS_WR);
 
- }
+}
 
-/**----------------------------------------------------------------------------------------------**/
- /**--------------------------------------    FRS   ---------------------------------------------**/
- /**----------------------------------------------------------------------------------------------**/
+///--------------------------------------/**FRS**/------------------------------------------///
+
 void EventAnlProc::Make_FRS_Histos(){
 
-    //TAC HISTOGRAMS
+///--------------------------------------/**TAC HISTOGRAMS**/------------------------------------------///
     
     hID_Z1_vs_T = MakeTH2('D',"FRS/ID/ID_Z1_Time", "Z1 vs Time",1240,0,100000000, 1500,frs_id->min_z_plot,frs_id->max_z_plot,"Time (/10 mins)", "Z1 s2-s4");
 
@@ -702,7 +631,8 @@ void EventAnlProc::Make_FRS_Histos(){
     //hTPC_Y_AY_S4=MakeTH2('D',"FRS/TPC/S4_focus/S4focus_Y_angleY","S4_Y_angleY", 400,-100.,100., 250,-50.0,50.0,"Y at S4 [mm] ","y angle [mrad] ");
 
    
-    ///MHTDC HISTOGRAMS
+///--------------------------------------/**MHTDC HISTOGRAMS**/------------------------------------------///
+/// BEEPBOOP
 
     hID_Z_mhtdc_T = MakeTH2('D',"FRS/MHTDC/ID/ID_Z_Time_mhtdc", "Z mhtdc vs Time",1200,17000,29000,2000,frs_id->min_z_plot,frs_id->max_z_plot,"Time (/10 mins)", "Z mhtdc");
 
@@ -762,23 +692,23 @@ void EventAnlProc::Make_FRS_Histos(){
     //int num_ID_Z_AoQ = {MAX_FRS_GATE};
     //int num_ID_dEdegZ1{MAX_FRS_GATE};
 
-     Float_t init_ID_x2AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_x4AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_x2AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_x4AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_Z_Z2[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_Z_Z2_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_Z_AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_dEdegZ1[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_Z_AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_dEdegZ1_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_dEvsBRho[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
-     Float_t init_ID_dEvsZ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_x2AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_x4AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_x2AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_x4AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_Z_Z2[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_Z_Z2_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_Z_AoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_dEdegZ1[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_Z_AoQ_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_dEdegZ1_mhtdc[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_dEvsBRho[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
+    Float_t init_ID_dEvsZ[MAX_FRS_GATE][MAX_FRS_PolyPoints][2];
 
 
-     ///FRS gates initialisation
-   for(int i=0; i<MAX_FRS_GATE; i++){
-       for(int j=0; j<MAX_FRS_PolyPoints; j++){
+    ///FRS gates initialisation
+    for(int i=0; i<MAX_FRS_GATE; i++){
+      for(int j=0; j<MAX_FRS_PolyPoints; j++){
         init_ID_x2AoQ[i][j][0] = XX2_AoQ[i][j];
         init_ID_x2AoQ[i][j][1] = YX2_AoQ[i][j];
         init_ID_x4AoQ[i][j][0] = XX4_AoQ[i][j];
@@ -809,13 +739,13 @@ void EventAnlProc::Make_FRS_Histos(){
         init_ID_x4AoQ_mhtdc[i][j][0] = XX4_AoQ_mhtdc[i][j];
         init_ID_x4AoQ_mhtdc[i][j][1] = YX4_AoQ_mhtdc[i][j];
 
-       }
-   }
+      }
+    }
     char name[50], title[100];
     
-     ///-----------------------------NOTE TAC GATES  ---------------------///
+    ///-----------------------------NOTE TAC GATES  ---------------------///
     for(int i=0; i<MAX_FRS_GATE; i++){
-        //Z vs AoQ
+      //Z vs AoQ
       sprintf(name,"cID_Z1_AoQ%d",i);
       cID_Z_AoQ[i] = MakePolyCond("FRS_Z1_AoQ_Gates", name, num_ID_Z_AoQ, init_ID_Z_AoQ[i], hID_Z_AoQ->GetName());
 
