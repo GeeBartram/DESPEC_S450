@@ -1,0 +1,8 @@
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0001.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0002.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0003.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0004.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0005.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0006.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0007.lmd
+/lustre/gamma/DESPEC_S450_FILES/ts/s450f0086_0008.lmd

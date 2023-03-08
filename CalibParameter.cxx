@@ -172,9 +172,11 @@ CalibParameter::CalibParameter(const Text_t *name)
    else {
     cout << " CalibParameter - reading calibration from: Germanium_Energy_Calibration.txt\n";
     for (i = 0; i < Germanium_MAX_CHANNELS; i++){
-      if(IsData(file)) file >> DetIDGe >>AGe[i] >> BGe[i] >> CGe[i] ;
-    
-       if (file.fail()) cout << "ERROR reading Germanium_Energy_Calibration.txt\n";
+      if(IsData(file)) {
+        file >> DetIDGe >>AGe[i] >> BGe[i] >> CGe[i] ;
+        printf("detIDGe%02d  %lf   %lf   %lf\n", DetIDGe, AGe[i], BGe[i], CGe[i]);
+      }
+      if (file.fail()) cout << "ERROR reading Germanium_Energy_Calibration.txt\n";
     }
   }
   file.close();

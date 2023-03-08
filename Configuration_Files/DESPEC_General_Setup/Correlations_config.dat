@@ -29,7 +29,7 @@
 0
 
 ## Combined Z1 Z2 AND X2/X4 AoQ gates, define which Z1 Z2 PID gate number will be used ##
-1
+0
 ##############################################################
 #### Setup correlation conditions for each detector array  ###
 ##############################################################
@@ -87,7 +87,7 @@
 ## 16. AIDA(Time Machine) - FRS  
 -550 -480
 ## 17. AIDA(Time Machine) - Germanium  
--1100 -600
+-150 -125
 ## 18. AIDA(Time Machine) - FATIMA (VME)  
 -400 -300
 ## 19. AIDA(Time Machine) - FATIMA (TAMEX)  

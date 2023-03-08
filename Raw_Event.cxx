@@ -670,26 +670,27 @@ void Raw_Event::set_DATA_PLASTIC_TWINPEAKS(int* it_bPlastTwinPeaks,double** Edge
 
     this->amount_hit_bPlastTwinPeaks = amount_hit_bPlastTwinPeaks;
     //reset lead and trail hits
-    for(int i = 0;i < bPLASTIC_TAMEX_MODULES;i++){
-       
-        for(int j = 0;j < 32;j++){
-            leading_hits_ch_bPlastTwinPeaks[i][j] = 0;
-            trailing_hits_ch_bPlastTwinPeaks[i][j] = 0;
-            leading_array_bPlastTwinPeaks[i][j] = 0;
-//             coarse_T_edge_lead_bPlastTwinPeaks[i][j] = 0;
-//             fine_T_edge_lead_bPlastTwinPeaks[i][j] = 0;
-        }
-    }
+//     for(int i = 0;i < bPLASTIC_TAMEX_MODULES;i++){
+//        
+//         for(int j = 0;j < 32;j++){
+//             leading_hits_ch_bPlastTwinPeaks[i][j] = 0;
+//             trailing_hits_ch_bPlastTwinPeaks[i][j] = 0;
+//             leading_array_bPlastTwinPeaks[i][j] = 0;
+// //             coarse_T_edge_lead_bPlastTwinPeaks[i][j] = 0;
+// //             fine_T_edge_lead_bPlastTwinPeaks[i][j] = 0;
+//         }
+//     }
 
     //loop over all tamex modules
     for(int i = 0;i < amount_hit_bPlastTwinPeaks;i++){
+        if(i<bPLASTIC_TAMEX_MODULES && it_bPlastTwinPeaks[i]<100 ){
         iterator_bPlastTwinPeaks[i] = it_bPlastTwinPeaks[i];
         trigger_coarse_bPlastTwinPeaks[i] = Coarse_Trigger_bPlastTwinPeaks[i];
         trigger_fine_bPlastTwinPeaks[i] = Fine_Trigger_bPlastTwinPeaks[i];
         fired_tamex_bPlastTwinPeaks[i] = (iterator_bPlastTwinPeaks[i] > 0);
         leading_hits_bPlastTwinPeaks[i] = 0;
         trailing_hits_bPlastTwinPeaks[i] = 0;
-
+//cout<<"iterator_bPlastTwinPeaks[i] " <<iterator_bPlastTwinPeaks[i] << " i " << i <<endl;
         for(int j = 0;j < iterator_bPlastTwinPeaks[i];++j){
             ch_ID_bPlastTwinPeaks[i][j] = ch_ed_bPlastTwinPeaks[i][j];
             leading_array_bPlastTwinPeaks[i][j] = Lead_Arr_bPlastTwinPeaks[i][j];
@@ -718,7 +719,8 @@ void Raw_Event::set_DATA_PLASTIC_TWINPEAKS(int* it_bPlastTwinPeaks,double** Edge
         }
                // cout <<"TRAIL RAW Ch " << ch_ID_bPlastTwinPeaks[i][j] <<" phys_channel_bPlastTwinPeaks[i][j] " << phys_channel_bPlastTwinPeaks[i][j]<<" coarse_T_edge_trail_bPlastTwinPeaks[i][j] " <<coarse_T_edge_trail_bPlastTwinPeaks[i][j] <<" fine_T_edge_trail_bPlastTwinPeaks[i][j] " <<fine_T_edge_trail_bPlastTwinPeaks[i][j] <<" i " << i << " j " << j <<   endl;
                //cout <<"RAW Trail" << "coarse_T_edge_trail_bPlastTwinPeaks[i][j] " << coarse_T_edge_trail_bPlastTwinPeaks[i][j] << " fine_T_edge_trail_bPlastTwinPeaks[i][j] " <<fine_T_edge_trail_bPlastTwinPeaks[i][j] << " i " << i << " j " << j << endl;
-          }
+                }
+            }
         }
     }
 

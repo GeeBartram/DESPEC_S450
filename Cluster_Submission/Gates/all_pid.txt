@@ -1,0 +1,29 @@
+{
+//========= Macro generated from object: Polygon 1/
+//========= by ROOT version6.22/08
+   
+   TCutG *cutg = new TCutG("Polygon 1",10);
+   cutg->SetVarX("");
+   cutg->SetVarY("");
+   cutg->SetTitle("");
+
+   Int_t ci;      // for color index setting
+   TColor *color; // for color definition with alpha
+   ci = TColor::GetColor("#00ff00");
+   cutg->SetFillColor(ci);
+   cutg->SetFillStyle(3002);
+
+   ci = TColor::GetColor("#00ff00");
+   cutg->SetLineColor(ci);
+   cutg->SetPoint(0,2.57154,78.0454);
+   cutg->SetPoint(1,2.57154,78.0454);
+   cutg->SetPoint(2,2.57844,72.6234);
+   cutg->SetPoint(3,2.62949,72.5873);
+   cutg->SetPoint(4,2.68353,74.9368);
+   cutg->SetPoint(5,2.70515,79.8166);
+   cutg->SetPoint(6,2.65203,81.3709);
+   cutg->SetPoint(7,2.57154,81.0456);
+   cutg->SetPoint(8,2.57131,79.2382);
+   cutg->SetPoint(9,2.57154,78.0454);
+   cutg->Draw("");
+}

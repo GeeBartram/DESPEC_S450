@@ -436,24 +436,24 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
         for(int gate=0; gate<MAX_FRS_GATE; gate++){
         hA_FRS_ZAoQ_implants_strip_xy[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/All/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_XY/DSSD%d_implants_strip_XY_Z1vsAoQ_Gate%d", gate,i+1,gate), Form("DSSD %d implant hit pattern FRS Z1vsAoQ Gate%d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
-        hA_FRS_ZAoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_Position/DSSD%d_implant_Position_Z1vsAoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z vs AoQ Gate %d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_ZAoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_Position/DSSD%d_implant_Position_Z1vsAoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z vs AoQ Gate %d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
         hA_FRS_ZAoQ_implants_e[gate][i] = MakeTH1('F', Form("Correlations/AIDA-FRS/Implants/All/Z1vsAoQ/Z1vsAoQ_Gate%d/Energy/DSSD%d_implants_energy_Z1vsAoQ_Gate%d", gate,i+1,gate), Form("DSSD %d implant energy FRS AoQ vs Z Gate%d", i+1,gate), 1000, 0, 10000, "Implant Energy/MeV");
 
         hA_FRS_ZAoQ_implants_strip_xy_stopped[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_XY/DSSD%d_implants_stopped_strip_XY_Z1vsAoQ_Gate%d",gate, i+1,gate), Form("DSSD %d stopped implant hit pattern FRS Z1vsAoQ Gate%d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
-        hA_FRS_ZAoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_Position/DSSD%d_implant_stopped_Position_Z1vsAoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z vs AoQ Gate%d ", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_ZAoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsAoQ/Z1vsAoQ_Gate%d/DSSD_Position/DSSD%d_implant_stopped_Position_Z1vsAoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z vs AoQ Gate%d ", i+1,gate), xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
         hA_FRS_ZAoQ_implants_e_stopped[gate][i] = MakeTH1('F', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsAoQ/Z1vsAoQ_Gate%d/Energy/DSSD%d_implants_stopped_energy_Z1vsAoQ_Gate%d", gate,i+1,gate), Form("DSSD %d stopped implant energy FRS AoQ vs Z Gate%d", i+1,gate), 1000, 0, 10000, "Implant Energy/MeV");
 
 
         hA_FRS_Z1Z2_implants_strip_xy[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/All/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_XY/DSSD%d_implants_strip_XY_Z1Z2g%d", gate,i+1,gate), Form("DSSD %d implant hit pattern, FRS Z1 Z2 Gate %d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
-        hA_FRS_Z1Z2_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_Position/DSSD%d_implant_Position_Z1vsZ2_Gate%d", gate, i+1,gate), Form("DSSD %d implant position FRS Z1 Z2 gate %d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_Position/DSSD%d_implant_Position_Z1vsZ2_Gate%d", gate, i+1,gate), Form("DSSD %d implant position FRS Z1 Z2 gate %d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
         hA_FRS_Z1Z2_implants_strip_xy_stopped[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_XY/DSSD%d_implants_stopped_strip_XY_Z1Z2g%d", gate,i+1,gate), Form("DSSD %d implant hit pattern, FRS Z1 Z2 Gate %d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
-        hA_FRS_Z1Z2_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1vsZ2_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1 Z2 Gate%d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1vsZ2/Z1vsZ2_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1vsZ2_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1 Z2 Gate%d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
 
         ///Z1Z2 X2AoQ
@@ -461,9 +461,9 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 
         hA_FRS_Z1Z2_x2AoQ_implants_e[gate][i] = MakeTH1('F', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x2AoQ/Z1Z2_x2AoQ_Gate%d/Energy/DSSD%d_implants_energy_Z1Z2_x2AoQ_Gate%d",gate, i+1,gate), Form("DSSD %d implant energy FRS Z1Z2_x2AoQ_Gate%d", i+1,gate), 1000, 0, 10000, "Implant Energy/MeV");
 
-        hA_FRS_Z1Z2_x2AoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x2AoQ/DSSD_Position/Z1Z2_x2AoQ_Gate%d/DSSD_Position/DSSD%d_implants_Position_Z1Z2_x2AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z1Z2_x2AoQ Gate%d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_x2AoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x2AoQ/DSSD_Position/Z1Z2_x2AoQ_Gate%d/DSSD_Position/DSSD%d_implants_Position_Z1Z2_x2AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z1Z2_x2AoQ Gate%d", i+1,gate), xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
-        hA_FRS_Z1Z2_x2AoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x2AoQ/Z1Z2_x2AoQ_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1Z2_x2AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1Z2_x2AoQ Gate%d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_x2AoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x2AoQ/Z1Z2_x2AoQ_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1Z2_x2AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1Z2_x2AoQ Gate%d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
         hA_FRS_Z1Z2_x2AoQ_implants_strip_xy_stopped[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x2AoQ/Z1Z2_x2AoQ_Gate%d/DSSD_XY/DSSD%d_implants_stopped_strip_Z1Z2_x2AoQ_Gate%d",gate, i+1,gate), Form("DSSD %d implant hit pattern FRS Z1Z2_x2AoQ_Gate Gate%d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
@@ -474,9 +474,9 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 
         hA_FRS_Z1Z2_x4AoQ_implants_e[gate][i] = MakeTH1('F', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/Energy/DSSD%d_implants_energy_Z1Z2_x4AoQ_Gate%d",gate, i+1,gate), Form("DSSD %d implant energy FRS Z1Z2_x4AoQ_Gate%d", i+1,gate), 1000, 0, 10000, "Implant Energy/MeV");
 
-        hA_FRS_Z1Z2_x4AoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/DSSD_Position/DSSD%d_implants_Position_Z1Z2_x4AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z1Z2_x4AoQ Gate%d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_x4AoQ_implants_position[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/All/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/DSSD_Position/DSSD%d_implants_Position_Z1Z2_x4AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant position Z1Z2_x4AoQ Gate%d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
-        hA_FRS_Z1Z2_x4AoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1Z2_x4AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1Z2_x4AoQ Gate%d", i+1,gate), 128, -37.8, 37.8, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
+        hA_FRS_Z1Z2_x4AoQ_implants_position_stopped[gate][i] = MakeTH2('D', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/DSSD_Position/DSSD%d_implants_stopped_Position_Z1Z2_x4AoQ_Gate%d", gate, i+1,gate), Form("DSSD %d implant stopped position Z1Z2_x4AoQ Gate%d", i+1,gate),  xstrips, -xmax, xmax, 128, -37.8, 37.8, "X position/mm", "Y position/mm");
 
         hA_FRS_Z1Z2_x4AoQ_implants_strip_xy_stopped[gate][i] = MakeTH2('I', Form("Correlations/AIDA-FRS/Implants/Stopped/Z1Z2_x4AoQ/Z1Z2_x4AoQ_Gate%d/DSSD_XY/DSSD%d_implants_stopped_strip_Z1Z2_x4AoQ_Gate%d",gate, i+1,gate), Form("DSSD %d implant hit pattern FRS Z1Z2_x4AoQ_Gate Gate%d", i+1,gate), 128, 0, 128, 128, 0, 128, "X strip", "Y strip");
 
@@ -559,7 +559,7 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                }
 
        ///Gate on FRS Z1 Z2  -> AIDA Implantation
-        if(cInputMain->pFRS_Z_Z2_pass[gate]==true ){
+        if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true ){
             hA_FRS_Z1Z2_implants_strip_xy[gate][hit.DSSD - 1]->Fill(hit.StripX, hit.StripY);
             hA_FRS_Z1Z2_implants_position[gate][hit.DSSD - 1]->Fill(hit.PosX, hit.PosY);
 
@@ -596,7 +596,7 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                }
 
              ///Gate on FRS Z1 vs Z2-> AIDA Stopped Implantation
-          if(cInputMain->pFRS_Z_Z2_pass[gate]==true ){
+          if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true ){
 
             hA_FRS_Z1Z2_implants_strip_xy_stopped[gate][hit.DSSD - 1]->Fill(hit.StripX, hit.StripY);
             hA_FRS_Z1Z2_implants_position_stopped[gate][hit.DSSD - 1]->Fill(hit.PosX, hit.PosY);
@@ -762,7 +762,7 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 //       hA_FRSWR_GeWR =  MakeTH1('I',"Correlations/FRS-Prompt_Ge/FRS-Ge_WR_dT","T Diff FRS WR -Germanium WR ",10000,-10000,10000,"Time[ns]", "Counts");
 
      // hA_FRS_GeE = MakeTH1('D', "Correlations/FRS-Prompt_Ge/Ge_EnergySum_allFRS", "Germanium Energy FRS (all) gated",6000, 0, 6000);
-      hA_FRS_ZAoQ_GeEvsT_all= MakeTH2('D',"Correlations/FRS-Prompt_Ge/Z1vsAoQ_Ge/GeE_vs_FRSGe_dT_Z1vsAoQ_All","Ge vs T all", 2100,-1000,20000,fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,"Ge Energy (keV)", "FRS - Ge time (ns)");
+      hA_FRS_ZAoQ_GeEvsT_all= MakeTH2('D',"Correlations/FRS-Prompt_Ge/Z1vsAoQ_Ge/GeE_vs_FRSGe_dT_Z1vsAoQ_All","Ge vs T all", 2100,-1000,20000,fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,"FRS - Ge time (ns)","Ge Energy (keV)" );
       for(int i=0; i<MAX_FRS_GATE; i++){
        hA_FRS_ZAoQ_GeE[i]  = MakeTH1('F', Form("Correlations/FRS-Prompt_Ge/Z1vsAoQ_Ge/SinglesEnergy/Ge_EnergySum_Z1vsAoQ_Gate%d", i), Form("Germanium Energy FRS PID gated %d", i), 2000, 0, 2000, "Energy/keV");
 
@@ -774,7 +774,7 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
         //Z1Z2
        hA_FRS_Z1Z2_GeE[i]  = MakeTH1('F', Form("Correlations/FRS-Prompt_Ge/Z1Z2_Ge/SinglesEnergy/Ge_Energy_Z1Z2Gate%d", i), Form("Germanium Energy FRS Z1Z2_X2AoQ Gate %d", i), 2000, 0, 2000, "Energy/keV");
 
-       hA_FRS_Z1Z2_GeEvsT[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_Ge/GeE_vs_dT/GeE_vs_FRSGe_dT_Z1Z2Gate%d",i),Form("T Diff FRS - Ge vs Ge Energy Z1Z2 Gate %d",i), 2100,-1000,20000,2000, 0, 2000,"Ge Energy (keV)", "FRS - Ge time (ns)");
+       hA_FRS_Z1Z2_GeEvsT[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_Ge/GeE_vs_dT/GeE_vs_FRSGe_dT_Z1Z2Gate%d",i),Form("T Diff FRS - Ge vs Ge Energy Z1Z2 Gate %d",i), 2100,-1000,20000,2000, 0, 2000,"FRS - Ge time (ns)","Ge Energy (keV)" );
 
        if(fCorrel->GSetup_corr_FRS_Gamma_Gamma==1){
        hA_FRS_Z1Z2_GeE1_GeE2[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_Ge/Gamma-Gamma/GeE1_vs_GeE2_Z1Z2_Gate%d",i),Form("Gamma-Gamma Z1Z2_Ge Gated: %d",i), fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,  fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax, "Ge Energy1 (keV)", "Ge Energy2 (keV)");
@@ -787,13 +787,22 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
        if(fCorrel->GSetup_corr_FRS_Gamma_Gamma==1){
        hA_FRS_Z1Z2_X2AoQ_GeE1_GeE2[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_X2AoQ_Ge/Gamma-Gamma/GeE1_vs_GeE2_Z1Z2_X2AoQ_Gate%d",i),Form("Gamma-Gamma Z1Z2_X2AoQ_Ge Gated: %d",i), fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,  fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax, "Ge Energy1 (keV)", "Ge Energy2 (keV)");
        }
-        //Z1Z2 X2AoQ
+        //Z1Z2 X4AoQ
        hA_FRS_Z1Z2_X4AoQ_GeE[i]  = MakeTH1('F', Form("Correlations/FRS-Prompt_Ge/Z1Z2_X4AoQ_Ge/SinglesEnergy/Ge_Energy_Z1Z2_X4AoQGate%d", i), Form("Germanium Energy FRS Z1Z2_X4AoQ Gate %d", i), 2000, 0, 2000, "Energy/keV");
 
        hA_FRS_Z1Z2_X4AoQ_GeEvsT[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_X4AoQ_Ge/GeE_vs_dT/GeE_vs_FRSGe_dT_Z1Z2_X4AoQGate%d",i),Form("T Diff FRS - Ge vs Ge Energy Z1Z2X4X4AoQ Gate %d",i),  2100,-1000,20000,2000, 0, 2000,"SCI41 - Ge time (ns)", "Ge Energy (keV)");
 
        if(fCorrel->GSetup_corr_FRS_Gamma_Gamma==1){
        hA_FRS_Z1Z2_X4AoQ_GeE1_GeE2[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/Z1Z2_X4AoQ_Ge/Gamma-Gamma/GeE1_vs_GeE2_Z1Z2_X4AoQ_Gate%d",i),Form("Gamma-Gamma Z1Z2_X4AoQ_Ge Gated: %d",i), fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,  fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax, "Ge Energy1 (keV)", "Ge Energy2 (keV)");
+       }
+
+      //X4AoQ
+       hA_FRS_X4AoQ_GeE[i]  = MakeTH1('F', Form("Correlations/FRS-Prompt_Ge/X4AoQ_Ge/SinglesEnergy/Ge_Energy_X4AoQGate%d", i), Form("Germanium Energy FRS X4AoQ Gate %d", i), 2000, 0, 2000, "Energy/keV");
+
+       hA_FRS_X4AoQ_GeEvsT[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/X4AoQ_Ge/GeE_vs_dT/GeE_vs_FRSGe_dT_X4AoQGate%d",i),Form("T Diff FRS - Ge vs Ge Energy X4AoQ Gate %d",i),  2100,-1000,20000,2000, 0, 2000,"SCI41 - Ge time (ns)", "Ge Energy (keV)");
+
+       if(fCorrel->GSetup_corr_FRS_Gamma_Gamma==1){
+       hA_FRS_X4AoQ_GeE1_GeE2[i]  = MakeTH2('D',Form("Correlations/FRS-Prompt_Ge/X4AoQ_Ge/Gamma-Gamma/GeE1_vs_GeE2_X4AoQ_Gate%d",i),Form("Gamma-Gamma X4AoQ_Ge Gated: %d",i), fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax,  fCorrel->GGe1_Ge2_HistoBin,fCorrel->GGe1_Ge2_HistoMin,fCorrel->GGe1_Ge2_HistoMax, "Ge Energy1 (keV)", "Ge Energy2 (keV)");
        }
 
       }
@@ -839,9 +848,10 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
       
       for(int g=0; g<Germanium_MAX_DETS; g++){
             for(int h=0; h<Germanium_CRYSTALS; h++){
-	      if(cInputMain->pGe_T_Aligned[g][h]>0){
-                hA_FRS_ZAoQ_GeEvsT_all->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_EAddback[g][h]);
-               
+	      if(cInputMain->pGe_T_Aligned[g][h]>0 && cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]>0){
+                hA_FRS_ZAoQ_GeEvsT_all->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
+//                cout << cInputMain->pGe_E[g][h] << endl;
+// 	       cout << cInputMain->pGe_T_Aligned[g][h] << endl;
 	      }
 	    }
 }
@@ -854,26 +864,26 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
           ///      if(g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det){
 
 
-        if (cInputMain->pGe_EAddback[g][h]>0) {
-        GeE_Prm[Ge_mult_prompt] = cInputMain->pGe_EAddback[g][h];
+        if (cInputMain->pGe_E[g][h]>0) {
+        GeE_Prm[Ge_mult_prompt] = cInputMain->pGe_E[g][h];
         GeT_Prm[Ge_mult_prompt] = cInputMain->pGe_T_Aligned[g][h];
 
              Ge_mult_prompt++;
 
                     }
 ///WR Time gate FRS-Ge GLOBAL dT GATE
-    if(dT_frsge_prompt>fCorrel->GFRS_Ge_TLow && dT_frsge_prompt < fCorrel->GFRS_Ge_THigh &&cInputMain->pGe_EAddback[g][h]>1){}
+    if(dT_frsge_prompt>fCorrel->GFRS_Ge_TLow && dT_frsge_prompt < fCorrel->GFRS_Ge_THigh &&cInputMain->pGe_E[g][h]>1){
 
      for(int gate=0;gate<MAX_FRS_GATE;gate++){
-//       if(cInputMain->pGe_EAddback[g][h]>0){
-//       hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-//                  hA_FRS_ZAoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T[g][h] - cInputMain->pGe_T[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_EAddback[g][h]);
+//       if(cInputMain->pGe_E[g][h]>0){
+//       hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+//                  hA_FRS_ZAoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T[g][h] - cInputMain->pGe_T[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
 //       }
 
         ///Cut the prompt flash with 2D poly (accepts events in window)
-        if(cGe_EdT_cut[gate]->Test((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_EAddback[g][h])==true) {
+       // if(cGe_EdT_cut[gate]->Test((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h])==true) {
                 ///Energy vs WR dT all
-//                 hA_FRS_GeEvsT->Fill(cInputMain->pGe_EAddback[g][h],dT_frsge_prompt);
+//                 hA_FRS_GeEvsT->Fill(cInputMain->pGe_E[g][h],dT_frsge_prompt);
 
          ///SC41 - Gamma dT gate (individual PID Gates)
 //             if((cInputMain->pGe_T[g][h] - cInputMain->pGe_T[Germanium_SC41_Det][Germanium_SC41L_Crystal])>fCorrel->GGe_SCI41_Low && (cInputMain->pGe_T[g][h] - cInputMain->pGe_T[Germanium_SC41_Det][Germanium_SC41L_Crystal])<fCorrel->GGe_SCI41_High){
@@ -885,30 +895,38 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
        if(cInputMain->pGe_T_Aligned[g][h]>0 && cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]>0){
                 dT_Ge_SCI=cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi];
        }
+       
+        if(cInputMain->pGe_T_Aligned[g][h]>0 && cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]>0){
                ///Z vs A/Q gated
               if(cInputMain->pFRS_ZAoQ_pass[gate]==true ){
 
-                  hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-                  hA_FRS_ZAoQ_GeEvsT[gate]->Fill((dT_Ge_SCI),cInputMain->pGe_EAddback[g][h]);
+                  hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                  hA_FRS_ZAoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
                                     }
 
-              if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true){
+              if(cInputMain->pFRS_Z_Z2_pass[gate]==true){
                    ///Z1Z2 gated
-                  hA_FRS_Z1Z2_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-                  hA_FRS_Z1Z2_GeEvsT[gate]->Fill((dT_Ge_SCI),cInputMain->pGe_EAddback[g][h]);
+                  hA_FRS_Z1Z2_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                  hA_FRS_Z1Z2_GeEvsT[gate]->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
                   
                ///Z1Z2 X2 AoQ gated
                 if(cInputMain->pFRS_x2AoQ_pass[gate]==true ){
-                    hA_FRS_Z1Z2_X2AoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-                    hA_FRS_Z1Z2_X2AoQ_GeEvsT[gate]->Fill((dT_Ge_SCI),cInputMain->pGe_EAddback[g][h]);
+                    hA_FRS_Z1Z2_X2AoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                    hA_FRS_Z1Z2_X2AoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
                             }
 
                 ///Z1Z2 X4 AoQ gated
                 if(cInputMain->pFRS_x4AoQ_pass[gate]==true){
-                    hA_FRS_Z1Z2_X4AoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-                    hA_FRS_Z1Z2_X4AoQ_GeEvsT[gate]->Fill((dT_Ge_SCI),cInputMain->pGe_EAddback[g][h]);
+                    hA_FRS_Z1Z2_X4AoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                    hA_FRS_Z1Z2_X4AoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
                                     }
-                                }
+                /// X4 AoQ gated
+                if(cInputMain->pFRS_x4AoQ_pass[gate]==true){
+                    hA_FRS_X4AoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                    hA_FRS_X4AoQ_GeEvsT[gate]->Fill((cInputMain->pGe_T_Aligned[g][h] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]),cInputMain->pGe_E[g][h]);
+                                    }
+	      }
+                                //}
                             ///}///End of Multiplicity 1 gammas
 
         ///Correct the times for more than one gamma in an event
@@ -917,41 +935,42 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 
                   dT_frsge_mult_prompt=(cInputMain->pGe_T[g][h] - cInputMain->pGe_T[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi]) + ABS(dT_GeT_prompt);
 
-              if(cInputMain->pGe_EAddback[g][h]>1){
+              if(cInputMain->pGe_E[g][h]>1){
                   ///Z vs A/Q gated
                   if(cInputMain->pFRS_ZAoQ_pass[gate]==true ){
                     //  cout<<"2PASS" << " gate " << gate << "hA_FRS_ZAoQ_GeE[gate] " <<hA_FRS_ZAoQ_GeE[gate] <<endl;
 
 
-                       hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-                       hA_FRS_ZAoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_EAddback[g][h]);
+                       hA_FRS_ZAoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+                       hA_FRS_ZAoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_E[g][h]);
                   }
 
 
         ///Z1Z2 X2 AoQ gated
-     if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true){
+     if(cInputMain->pFRS_Z_Z2_pass[1]==true){
         if( cInputMain->pFRS_x2AoQ_pass[gate]==true ){
 
-         hA_FRS_Z1Z2_X2AoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-            hA_FRS_Z1Z2_X2AoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_EAddback[g][h]);
+         hA_FRS_Z1Z2_X2AoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+            hA_FRS_Z1Z2_X2AoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_E[g][h]);
                         }
 
             if(cInputMain->pFRS_x4AoQ_pass[gate]==true){
-               hA_FRS_Z1Z2_X4AoQ_GeE[gate]->Fill(cInputMain->pGe_EAddback[g][h]);
-            hA_FRS_Z1Z2_X4AoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_EAddback[g][h]);
+               hA_FRS_Z1Z2_X4AoQ_GeE[gate]->Fill(cInputMain->pGe_E[g][h]);
+            hA_FRS_Z1Z2_X4AoQ_GeEvsT[gate]->Fill(dT_frsge_mult_prompt,cInputMain->pGe_E[g][h]);
                                             }
                                         }///End of Z1 Z2 Gate
                                     } ///End of GeE>1
                                 }*////End of multiplicity>1 gammas
                            // }///End of prompt flash cut
                         }///End of gate loop
-                    //}
+                    }
                 }///End of WR gate
            // }///End of Detector number '8' i.e. Extra signals condition
         }// Crystals
      }///Detector
 }///Ge WR
                 ///Gamma-Gamma Z vs A/Q
+                if( fCorrel->GSetup_corr_FRS_Gamma_Gamma==1){
                 for(int gate=0; gate< MAX_FRS_GATE; gate ++){
 
                 for(int m=0; m<Ge_mult_prompt; m++){
@@ -961,19 +980,19 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 
     if(cGe_EdT_cut[gate]->Test(GeT_Prm[m] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi],GeE_Prm[m])==true && cGe_EdT_cut[gate]->Test(GeT_Prm[n] - cInputMain->pGe_T_Aligned[Germanium_SC41_Det][Germanium_SC41L_Crystal_Digi],GeE_Prm[n])==true) {
 
-                if(cInputMain->pFRS_ZAoQ_pass[gate]==true && fCorrel->GSetup_corr_FRS_Gamma_Gamma==1 )    hA_FRS_ZAoQ_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
+                if(cInputMain->pFRS_ZAoQ_pass[gate]==true )    hA_FRS_ZAoQ_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
 
 
-                if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true ){
-                    hA_FRS_Z1Z2_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
+                if(cInputMain->pFRS_Z_Z2_pass[0]==true ){
+//                     hA_FRS_Z1Z2_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
                         if(cInputMain->pFRS_x2AoQ_pass[gate]==true){
                         hA_FRS_Z1Z2_X2AoQ_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
 
                         }
 
                     if(cInputMain->pFRS_x4AoQ_pass[gate]==true){
-                    hA_FRS_Z1Z2_X4AoQ_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
-
+                   // hA_FRS_Z1Z2_X4AoQ_GeE1_GeE2[gate]->Fill(GeE_Prm[m],GeE_Prm[n]);
+					  }
                                         }
                                     }///Z1 Z2
                                 }///prompt cut
@@ -1076,23 +1095,23 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                     for(int g=0; g<Germanium_MAX_DETS; g++){
                             for (int h=0; h<Germanium_CRYSTALS; h++){
 
-                          if(cInputMain->pGe_EAddback[g][h]>0 &&  (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det)) {
-                             GeE_Long[Ge_mult_long] = cInputMain->pGe_EAddback[g][h];
+                          if(cInputMain->pGe_E[g][h]>0 &&  (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det)) {
+                             GeE_Long[Ge_mult_long] = cInputMain->pGe_E[g][h];
                              GeT_Long[Ge_mult_long] = cInputMain->pGe_T_Aligned[g][h];
 
                              Ge_mult_long++;
                           }
 
-                          if(cInputMain->pGe_EAddback[g][h]>10 && dT_frsge_long>0 &&( g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det )){
+                          if(cInputMain->pGe_E[g][h]>10 && dT_frsge_long>0 &&( g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det )){
 
-                             if(Ge_mult_long==1 && cInputMain->pGe_EAddback[g][h]>0){
+                             if(Ge_mult_long==1 && cInputMain->pGe_E[g][h]>0){
            ///Note that Ge_FirstT_Long is not always necessarily the 'first' gamma (i.e. lowest time) since it loops over all detectors starting from 0
                         Ge_FirstT_long=cInputMain->pGe_T_Aligned[g][h];
 
-                    hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_EAddback[g][h]);
+                    hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_E[g][h]);
 
-                    hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_EAddback[g][h]);
-                   // cout<<"SING dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale " <<dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale << " cInputMain->pGe_EAddback[g][h] " <<cInputMain->pGe_EAddback[g][h] << endl;
+                    hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_E[g][h]);
+                   // cout<<"SING dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale " <<dT_frsge_long/fCorrel->GFRS_Ge_LongIso_TScale << " cInputMain->pGe_E[g][h] " <<cInputMain->pGe_E[g][h] << endl;
 
                             }
 
@@ -1101,10 +1120,10 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                             dT_GeT_long =(cInputMain->pGe_T_Aligned[g][h]-Ge_FirstT_long);
                             dT_frsge_mult_long=dT_frsge_long + ABS(dT_GeT_long);
 
-                         if(cInputMain->pGe_EAddback[g][h]>10 && dT_frsge_mult_long>0){
+                         if(cInputMain->pGe_E[g][h]>10 && dT_frsge_mult_long>0){
 
-                            hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_mult_long/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_EAddback[g][h]);
-                            hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_EAddback[g][h]);
+                            hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_mult_long/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_E[g][h]);
+                            hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_E[g][h]);
 
                                  }
                               }
@@ -1144,20 +1163,20 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
 
                 for(int g=0; g<Germanium_MAX_DETS; g++){
                     for(int h=0; h<Germanium_CRYSTALS; h++){
-                        if((g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det) && cInputMain->pGe_EAddback[g][h]>0){
-                             GeE_Prm_Long[Ge_mult_prompt] = cInputMain->pGe_EAddback[g][h];
+                        if((g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det) && cInputMain->pGe_E[g][h]>0){
+                             GeE_Prm_Long[Ge_mult_prompt] = cInputMain->pGe_E[g][h];
                              GeT_Prm_Long[Ge_mult_prompt] = cInputMain->pGe_T_Aligned[g][h];
                             Ge_mult_prompt++;
 
                     ///Cut the prompt flash with 2D poly
-                        if(cGe_EdT_cut[fCorrel->GLongIso_PID_Gate]->Test(dT_frsge_prompt,cInputMain->pGe_EAddback[g][h])==true) {
+                        if(cGe_EdT_cut[fCorrel->GLongIso_PID_Gate]->Test(dT_frsge_prompt,cInputMain->pGe_E[g][h])==true) {
                     ///Get the 'first' gamma
                  if(Ge_mult_prompt==1){
                      Ge_FirstT_prompt=cInputMain->pGe_T_Aligned[g][h];
 
                      ///Energy vs  dT
-                    hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_EAddback[g][h]);
-                    hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_prompt/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_EAddback[g][h]);
+                    hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_E[g][h]);
+                    hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_prompt/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_E[g][h]);
 
 
                  }
@@ -1168,11 +1187,11 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                   dT_GeT_prompt = (cInputMain->pGe_T_Aligned[g][h]-Ge_FirstT_prompt);
                   dT_frsge_mult_prompt=(cInputMain->pGe_WR-cInputMain->pFRS_WR) + ABS(dT_GeT_prompt);
 
-                  hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_EAddback[g][h]);
+                  hA_FRS_ZAoQ_GeE_LongIso->Fill(cInputMain->pGe_E[g][h]);
 
                     if(dT_frsge_mult_prompt!=0){
 
-                        hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_mult_prompt/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_EAddback[g][h]);
+                        hA_FRS_GeEvsT_LongIsoGated->Fill(dT_frsge_mult_prompt/fCorrel->GFRS_Ge_LongIso_TScale,cInputMain->pGe_E[g][h]);
                                     }
                                 }
                             }
@@ -1364,7 +1383,7 @@ Bool_t EventCorrelProc::BuildEvent(TGo4EventElement* dest)
                          }
                 }
 
-                   if(cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true){
+                   if(cInputMain->pFRS_Z_Z2_pass[0]==true){
                     ///Z1 Z2:  X2 A/Q gate
                       if(cInputMain->pFRS_x2AoQ_pass[gate]==true ){
                            hA_FRS_Z1Z2_X2AoQ_FatE[gate]->Fill(cInputMain->pFat_QDC_E[k]);
@@ -1766,15 +1785,15 @@ dT_frsfat_prompt = ((cInputMain->pFat_TDC_T[k]-cInputMain->pSC40[0])*0.025);
         ///Spill On/Off Germanium
         for(int g=0; g<Germanium_MAX_DETS; g++){
                     for(int h=0; h<Germanium_CRYSTALS; h++){
-                        if(g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det&&cInputMain->pGe_EAddback[g][h]>0){
+                        if(g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det&&cInputMain->pGe_E[g][h]>0){
                             if(cInputMain->pOnSpill==0){
-                                hSpillOff_Germanium->Fill(cInputMain->pGe_EAddback[g][h]);
-                                GeE_SpillOff[gespilloffhits]=cInputMain->pGe_EAddback[g][h];
+                                hSpillOff_Germanium->Fill(cInputMain->pGe_E[g][h]);
+                                GeE_SpillOff[gespilloffhits]=cInputMain->pGe_E[g][h];
                                 GeT_SpillOff[gespilloffhits]=cInputMain->pGe_T_Aligned[g][h];
                                 gespilloffhits++;
         
                             }
-                            if(cInputMain->pOnSpill==1) hSpillOn_Germanium->Fill(cInputMain->pGe_EAddback[g][h]);
+                            if(cInputMain->pOnSpill==1) hSpillOn_Germanium->Fill(cInputMain->pGe_E[g][h]);
                         }
                     }
         }
@@ -1845,9 +1864,9 @@ dT_frsfat_prompt = ((cInputMain->pFat_TDC_T[k]-cInputMain->pSC40[0])*0.025);
 
       for(int g=0; g<Germanium_MAX_DETS; g++){
                     for(int h=0; h<Germanium_CRYSTALS; h++){
-                        if(g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det&&cInputMain->pGe_EAddback[g][h]>0){
-                            hbPlast_SpillOff_Germanium->Fill(cInputMain->pGe_EAddback[g][h]);
-                            GeE_bPlast_SpillOff[Ge_mult_bPlast] = cInputMain->pGe_EAddback[g][h];
+                        if(g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det&&cInputMain->pGe_E[g][h]>0){
+                            hbPlast_SpillOff_Germanium->Fill(cInputMain->pGe_E[g][h]);
+                            GeE_bPlast_SpillOff[Ge_mult_bPlast] = cInputMain->pGe_E[g][h];
                             GeT_bPlast_SpillOff[Ge_mult_bPlast] = cInputMain->pGe_T_Aligned[g][h];
                             Ge_mult_bPlast++;
 
@@ -2073,12 +2092,12 @@ dT_frsfat_prompt = ((cInputMain->pFat_TDC_T[k]-cInputMain->pSC40[0])*0.025);
                         jPID.GatePass = gate;
             
                     }
-                    if(fCorrel->GBDG_FRS_Gate==2 && cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true && cInputMain->pFRS_x2AoQ_pass[gate]==true ){
+                    if(fCorrel->GBDG_FRS_Gate==2 && cInputMain->pFRS_Z_Z2_pass[0]==true && cInputMain->pFRS_x2AoQ_pass[gate]==true ){
 
                         jPID.GatePass = gate;
 
                     }
-                    if(fCorrel->GBDG_FRS_Gate==3 && cInputMain->pFRS_Z_Z2_pass[fCorrel->GZ1Z2_Gate]==true && cInputMain->pFRS_x4AoQ_pass[gate]==true){
+                    if(fCorrel->GBDG_FRS_Gate==3 && cInputMain->pFRS_x4AoQ_pass[gate]==true){
 
                         jPID.GatePass = gate;
 
@@ -2244,8 +2263,8 @@ for(int i=0;i<MAX_FRS_GATE;i++){
 
             for(int g=0; g<Germanium_MAX_DETS; g++){
                     for (int h=0; h<Germanium_CRYSTALS; h++){
-                            if(cInputMain->pGe_EAddback[g][h]>0&& (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det)){
-                                hGe_BetaGamma->Fill(cInputMain->pGe_EAddback[g][h]);
+                            if(cInputMain->pGe_E[g][h]>0&& (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det)){
+                                hGe_BetaGamma->Fill(cInputMain->pGe_E[g][h]);
 
                 }
             }
@@ -2272,13 +2291,13 @@ for(int i=0;i<MAX_FRS_GATE;i++){
                     for (int h=0; h<Germanium_CRYSTALS; h++){
 
 
-                 if(cInputMain->pGe_EAddback[g][h]>0&& (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det) && lastdT_Gate[i]!=0){
+                 if(cInputMain->pGe_E[g][h]>0&& (g!=Germanium_SC41_Det&&g!=Germanium_SC41_Det_Digi&&g!=Germanium_TimeMachine_Det) && lastdT_Gate[i]!=0){
 
-                       hGe_BetaGamma_E[i]->Fill(cInputMain->pGe_EAddback[g][h]);
+                       hGe_BetaGamma_E[i]->Fill(cInputMain->pGe_E[g][h]);
                        hGe_BetaGamma_dT[i]->Fill(double(lastdT_Gate[i])/1e9);
-                       hGe_BetaGamma_EdT[i]->Fill(cInputMain->pGe_EAddback[g][h],double(lastdT_Gate[i])/1e9);
+                       hGe_BetaGamma_EdT[i]->Fill(cInputMain->pGe_E[g][h],double(lastdT_Gate[i])/1e9);
 
-                       GeE[gehits]=cInputMain->pGe_EAddback[g][h];
+                       GeE[gehits]=cInputMain->pGe_E[g][h];
                        gehits++;
 
                }

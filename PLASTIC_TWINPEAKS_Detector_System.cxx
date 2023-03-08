@@ -245,7 +245,7 @@ void PLASTIC_TWINPEAKS_Detector_System::get_trigger(){
 //---------------------------------------------------------------
 
 void PLASTIC_TWINPEAKS_Detector_System::reset_edges(){
-    for(int i = 0;i < 9;++i){
+    for(int i = 0;i < bPLASTIC_TAMEX_MODULES;++i){
         for(int j = 0;j < 200;++j){
             leading_hits[i][j] = 0;
             trailing_hits[i][j] = 0;
@@ -320,15 +320,17 @@ void PLASTIC_TWINPEAKS_Detector_System::get_edges(){
              
              leading_hit=data->leading_E;
               //cout<<"TRAIL EDGE " << data->leading_E << endl;
-        edge_coarse[tamex_iter][iterator[tamex_iter]] = (double) data->coarse_T;
-        edge_fine[tamex_iter][iterator[tamex_iter]] = (double) data->fine_T;
-        ch_ID_edge[tamex_iter][iterator[tamex_iter]] = data->ch_ID+MAX_CHA_INPUT;
+                edge_coarse[tamex_iter][iterator[tamex_iter]] = (double) data->coarse_T;
+                edge_fine[tamex_iter][iterator[tamex_iter]] = (double) data->fine_T;
+                ch_ID_edge[tamex_iter][iterator[tamex_iter]] = data->ch_ID+MAX_CHA_INPUT;
         
             //  cout << "TRAIL EDGE " <<" leading_hit "<<leading_hit<< edge_coarse[tamex_iter][iterator[tamex_iter]] << " fine " << edge_fine[tamex_iter][iterator[tamex_iter]]<< " Chan " << ch_ID_edge[tamex_iter][iterator[tamex_iter]] <<" tamex_iter " <<tamex_iter << " iterator[tamex_iter] " <<iterator[tamex_iter] <<  endl; 
         }
 //        cout << "coarse " << edge_coarse[tamex_iter][iterator[tamex_iter]] << " fine " << edge_fine[tamex_iter][iterator[tamex_iter]]<< " Chan " << ch_ID_edge[tamex_iter][iterator[tamex_iter]] <<"  lead_arr[tamex_iter][iterator[tamex_iter]] " << lead_arr[tamex_iter][iterator[tamex_iter]] <<  endl;  
          
         iterator[tamex_iter]++;
+        if(iterator[tamex_iter]>100)break;
+       // cout<<"iterator[tamex_iter] " <<iterator[tamex_iter] << " tamex_iter " <<tamex_iter << endl;
 
         written = true;
 
@@ -385,6 +387,7 @@ void PLASTIC_TWINPEAKS_Detector_System::check_trailer(){
 void PLASTIC_TWINPEAKS_Detector_System::calibrate_ONLINE(){
 
     //send data to ROOT histograms in Calibrator object
+
     PLASTIC_TAMEX_Calibration->get_data(edge_fine,ch_ID_edge,tamex_iter,iterator);
    // cout<<"3 " << endl;
     double max_count = 1000000.;

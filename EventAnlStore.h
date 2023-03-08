@@ -98,6 +98,9 @@ class EventAnlStore : public TGo4EventElement {
       Bool_t pFRS_dEdegZ1_pass[MAX_FRS_GATE];
       Bool_t pFRS_dEdegZ1_pass_mhtdc[MAX_FRS_GATE];
       Bool_t pFRS_Z_Z2_pass_mhtdc[MAX_FRS_GATE];
+      Bool_t pFRS_dEvsBRho_pass[MAX_FRS_GATE];
+      Bool_t pFRS_dEvsZ_pass[MAX_FRS_GATE];
+
 
       //Helena
       Long64_t pt_lastSC41 = 0;

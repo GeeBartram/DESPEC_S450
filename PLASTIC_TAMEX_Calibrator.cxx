@@ -167,12 +167,14 @@ double PLASTIC_TAMEX_Calibrator::get_Calibration_val(double value,int tamex_id_t
     double return_val = 0;
     double value_t = (double) value;
     double tmp,tmp2;
-
+   //cout<<"ch_id_tmp " <<ch_id_tmp << " tamex_id_tmp " <<tamex_id_tmp << endl;
     for(int i = 0;i < nbins-1;++i){
 //if(ch_id_tmp=-1) break;
-     if(ch_id_tmp>-1&&ch_id_tmp<65){
-        tmp = Cal_arr[tamex_id_tmp][ch_id_tmp][i];
     
+     if(ch_id_tmp>-1 && ch_id_tmp<65){
+         // if(i==0) cout<<"tmp " <<tmp << " tamex_id_tmp " <<tamex_id_tmp << " ch_id_tmp " <<ch_id_tmp << endl;
+        tmp = Cal_arr[tamex_id_tmp][ch_id_tmp][i];
+  
         tmp2 = Cal_arr[tamex_id_tmp][ch_id_tmp][i+1];
         //cout << "calib "<<tmp << " " << tmp2 << " " << value << " " << bins_x_arr[i]<<endl;
         if(value >= bins_x_arr[i] && value < bins_x_arr[i+1]){

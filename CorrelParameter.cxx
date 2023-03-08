@@ -244,7 +244,7 @@ cout << "CorrelParameter - reading from Configuration_Files/DESPEC_General_Setup
        if(IsData(file)) file >> GSetup_corr_Beta_Gamma_bPlastSpillOff;
        if(IsData(file)) file >> GSetup_corr_Beta_Gamma >> GSetup_corr_Beta_Gamma_Gamma >> GSetup_corr_Beta_Gamma_Fatima;
        if(IsData(file)) file >> GSetup_corr_Beta_Gamma_Fatima_LT;
-       if(IsData(file)) file >>GZ1Z2_Gate;
+       if(IsData(file)) file >> GZ1Z2_Gate;
     
        //White rabbit read in: 
         ///1. AIDA Implants FRS WR Time Gate

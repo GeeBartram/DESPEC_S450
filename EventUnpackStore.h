@@ -68,7 +68,7 @@ public:
     Float_t fFRS_ID_x4, fFRS_ID_y4, fFRS_ID_a4, fFRS_ID_b4;
   //  Int_t fFRS_sci_dt_21l_21r, fFRS_sci_dt_41l_41r, fFRS_sci_dt_42l_42r, fFRS_sci_dt_43l_43r;
    // Int_t fFRS_sci_dt_21l_41l, fFRS_sci_dt_21r_41r, fFRS_sci_dt_21l_42l, fFRS_sci_dt_21r_42r;
-   // Float_t fFRS_ID_brho[2], fFRS_ID_rho[2];
+    Float_t fFRS_ID_brho[2], fFRS_ID_rho[2]; //ADDED BY GEE 07/12/22
     Float_t fFRS_beta, fFRS_gamma;
     Float_t fFRS_tof4121, fFRS_tof4221;
     Float_t fFRS_AoQ, fFRS_AoQ_corr;

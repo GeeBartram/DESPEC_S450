@@ -100,7 +100,7 @@ EventUnpackProc::EventUnpackProc(const char* name) : TGo4EventProcessor(name)
   fCal = (CalibParameter*) GetParameter("CalibPar");
 
    DESPECAnalysis* an = dynamic_cast<DESPECAnalysis*> (TGo4Analysis::Instance());
-    frs_id = dynamic_cast<TIDParameter*> (an->GetParameter("IDPar"));
+   
  //create Detector Systems
   Detector_Systems = new Detector_System*[8];
 
@@ -116,6 +116,8 @@ EventUnpackProc::EventUnpackProc(const char* name) : TGo4EventProcessor(name)
   Detector_Systems[5] = !Used_Systems[5] ? nullptr : new Germanium_Detector_System();
   Detector_Systems[6] = !Used_Systems[6] ? nullptr : new FINGER_Detector_System();
   Detector_Systems[7] = !Used_Systems[7] ? nullptr : new Beam_Monitor_Detector_System();
+  
+   frs_id = dynamic_cast<TIDParameter*> (an->GetParameter("IDPar"));
 
   ///Create some basic raw histograms
   if(Used_Systems[0]) Make_FRS_Histos();
@@ -403,7 +405,7 @@ Bool_t EventUnpackProc::BuildEvent(TGo4EventElement* dest)
 
         ///MUSIC
        if(PrcID==20){
-           for(int i =0; i<2; ++i){
+           for(int i =0; i<3; ++i){
             fOutput->fFRS_Music_dE[i] = RAW->get_FRS_MusicdE(i);
            
             fOutput->fFRS_Music_dE_corr[i] = RAW->get_FRS_MusicdE_corr(i);
@@ -486,10 +488,10 @@ Bool_t EventUnpackProc::BuildEvent(TGo4EventElement* dest)
 //         fOutput->fFRS_sci_dt_21l_42l = RAW->get_FRS_dt_21l_42l();
 //         fOutput->fFRS_sci_dt_21r_42r = RAW->get_FRS_dt_21r_42r();
             ///ID Beta Rho
-//         for(int i =0; i<2; ++i){
-//             fOutput->fFRS_ID_brho[i] = RAW->get_FRS_brho(i);
-//             fOutput->fFRS_ID_rho[i] = RAW->get_FRS_rho(i);
-//         }
+         for(int i =0; i<2; ++i){
+             fOutput->fFRS_ID_brho[i] = RAW->get_FRS_brho(i);
+             fOutput->fFRS_ID_rho[i] = RAW->get_FRS_rho(i);
+        }
  ///Using TAC
         fOutput->fFRS_beta = RAW->get_FRS_beta();
 
@@ -1820,14 +1822,14 @@ void EventUnpackProc::get_used_systems(){
     hSCI_dT_21r_42r = MakeTH1('D',"FRS/SCI/dT/SCI_dt_21r_42r","hSCI_dT_21r_42r",5001,0,5000);*/
 
     //ID
-
-    hID_AoQ = MakeTH1('D',"FRS/ID/ID_AoQ","ID_AoQ",2000,frs_id->min_aoq_plot,frs_id->max_aoq_plot,"A/Q S2-S4");
-    hID_AoQ_corr = MakeTH1('D',"FRS/ID/ID_AoQ_corr","ID_AoQ_corr",2000,frs_id->min_aoq_plot,frs_id->max_aoq_plot,"A/Q S2-S4");
+//     cout<<"frs_id->min_aoq_plot " <<frs_id->min_aoq_plot << endl;
+    hID_AoQ = MakeTH1('D',"FRS/ID/ID_AoQ","ID_AoQ",1000,2,3,"A/Q S2-S4");
+    hID_AoQ_corr = MakeTH1('D',"FRS/ID/ID_AoQ_corr","ID_AoQ_corr",1000,2,3,"A/Q S2-S4");
     
     
 
-    hID_AoQ_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_AoQ_mhtdc","ID_AoQ",2000,frs_id->min_aoq_plot,frs_id->max_aoq_plot,"A/Q S2-S4");
-    hID_AoQ_corr_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_AoQ_corr_mhtdc","ID_AoQ_corr",2000,frs_id->min_aoq_plot,frs_id->max_aoq_plot,"A/Q S2-S4");
+    hID_AoQ_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_AoQ_mhtdc","ID_AoQ",1000,2,3,"A/Q S2-S4");
+    hID_AoQ_corr_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_AoQ_corr_mhtdc","ID_AoQ_corr",1000,2,3,"A/Q S2-S4");
 
 
 //     hID_Z_AoQ_mhtdc = MakeTH2('D',"FRS/MHTDC/ID/ID_Z1_AoQ_mhtdc", "Z1 vs A/Q",1500,frs_id->min_aoq_plot,frs_id->max_aoq_plot, 1500,frs_id->min_z_plot,frs_id->max_z_plot,"A/Q s2-s4", "Z1 s2-s4");
@@ -1837,12 +1839,12 @@ void EventUnpackProc::get_used_systems(){
   //  hID_Z_Z2_mhtdc = MakeTH2('D',"FRS/MHTDC/ID/ID_Z1_Z2_mhtdc","Z1 vs. Z2", 1000,frs_id->min_z_plot,frs_id->max_z_plot, 1000,frs_id->min_z_plot,frs_id->max_z_plot,"Z1", "Z2");
 
   //   hID_Z = MakeH1I("ID",Form("ID_Z, gain=%f",music->e1_gain[0]),1000,10,93,"Z s2-s4",2,6);
-    hID_Z = MakeTH1('D',"FRS/ID/ID_Z1","ID_Z1",1000,frs_id->min_z_plot,frs_id->max_z_plot,"Z1 s2-s4");
-    hID_Z2 = MakeTH1('D',"FRS/ID/ID_Z2","ID_Z2",1000,frs_id->min_z_plot,frs_id->max_z_plot,"Z2 s2-s4");
+    hID_Z = MakeTH1('D',"FRS/ID/ID_Z1","ID_Z1",1000,70,90,"Z1 s2-s4");
+    hID_Z2 = MakeTH1('D',"FRS/ID/ID_Z2","ID_Z2",1000,70,90,"Z2 s2-s4");
 
-    hID_Z_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_Z1_mhtdc","ID_Z1",1000,frs_id->min_z_plot,frs_id->max_z_plot,"Z1 s2-s4");
+    hID_Z_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_Z1_mhtdc","ID_Z1",1000,70,90,"Z1 s2-s4");
 
-    hID_Z2_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_Z2_mhtdc","ID_Z2",1000,frs_id->min_z_plot,frs_id->max_z_plot,"Z2 s2-s4");
+    hID_Z2_mhtdc = MakeTH1('D',"FRS/MHTDC/ID/ID_Z2_mhtdc","ID_Z2",1000,70,90,"Z2 s2-s4");
 
   
   ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -3249,7 +3251,7 @@ void EventUnpackProc::Make_Germanium_Histos(){
                     sprintf(chead,"Trace");
                     h_trace[i][j] = MakeTH1('I', chis,chead,Germanium_TRACE_LENGTH,0,Germanium_TRACE_LENGTH);
               }
-                    hGe_Raw_E[i][j] = MakeTH1('D',Form("Germanium/Raw/Germanium_Energy_Spectra/Germanium_Raw_E_Det:%2d_Crystal:%2d",i,j),Form("Germanium Energy Raw Det%2d Crystal%2d",i,j),20000,0,2000000);
+                    hGe_Raw_E[i][j] = MakeTH1('D',Form("Germanium/Raw/Germanium_Energy_Spectra/Germanium_Raw_E_Det:%2d_Crystal:%2d",i,j),Form("Germanium Energy Raw Det%2d Crystal%2d",i,j),30000,0,3000000);
                     
         }
     }
@@ -3272,7 +3274,7 @@ void EventUnpackProc::Fill_Germanium_Histos(){
          for(int i=0; i<Germanium_hits; i++){
             if(RAW->get_Germanium_Det_id(i)>-1){
                hGe_Raw_E[RAW->get_Germanium_Det_id(i)][RAW->get_Germanium_Crystal_id(i)]->Fill(RAW->get_Germanium_Chan_E(i));
-               
+         
           if(Germanium_TRACES_ACTIVE){
             for(int l_l=0; l_l<RAW->get_Germanium_Trace_Length()/2; l_l++){
                      

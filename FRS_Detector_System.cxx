@@ -691,11 +691,11 @@ FRS_Detector_System::FRS_Detector_System(){
 
     for(int i = 0; i < 12; ++i){
 
-        sci_l[i] = 0;
-        sci_r[i] = 0;
-        sci_e[i] = 0;
-        sci_tx[i] = 0;
-        sci_x[i] = 0;
+        sci_l[i] = 999;
+        sci_r[i] = 999;
+        sci_e[i] = 999;
+        sci_tx[i] = 999;
+        sci_x[i] = 999;
 
         sci_b_l[i] = false;
         sci_b_r[i] = false;
@@ -2154,7 +2154,8 @@ void FRS_Detector_System::FRS_Sort(){
         music_t1[i] =0;
         music_t2[i] =0;
         
-        
+        id_z=0;
+	id_z2=0;
                 }
 
         }
@@ -3107,7 +3108,7 @@ for(int i=0; i<8; i++){
   for(int i=0;i<7;i++)
     {
 
-  for(int ihit=0; ihit<(tpc_nhit_lt[i][0] && ihit<64); ihit++){
+  for(int ihit=0; (ihit<tpc_nhit_lt[i][0] && ihit<64); ihit++){
 
          Int_t thisdata = tpc_lt[i][0][ihit];
          Int_t currently_selected = tpc_lt_s[i][0];
@@ -3125,7 +3126,7 @@ for(int i=0; i<8; i++){
           }
         }
 
-        for(int ihit=0; ihit<(tpc_nhit_rt[i][0] && ihit<64); ihit++){
+        for(int ihit=0; (ihit<tpc_nhit_rt[i][0] && ihit<64); ihit++){
           Int_t thisdata = tpc_rt[i][0][ihit];
           Int_t currently_selected = tpc_rt_s[i][0];
 
@@ -3137,7 +3138,7 @@ for(int i=0; i<8; i++){
 
           }
         }
-        for(int ihit=0; ihit<(tpc_nhit_lt[i][1] && ihit<64); ihit++){
+        for(int ihit=0; (ihit<tpc_nhit_lt[i][1] && ihit<64); ihit++){
           Int_t thisdata = tpc_lt[i][1][ihit];
          // cout<<"tpc_lt[i][1][ihit] " <<tpc_lt[i][1][ihit] << endl;
           Int_t currently_selected = tpc_lt_s[i][1];
@@ -3149,7 +3150,7 @@ for(int i=0; i<8; i++){
            // cout<<"Check range tpc_lt_s[i][1] " <<tpc_lt_s[i][1] << endl;
           }
         }
-        for(int ihit=0; ihit<(tpc_nhit_rt[i][1] && ihit<64); ihit++){
+        for(int ihit=0; (ihit<tpc_nhit_rt[i][1] && ihit<64); ihit++){
           Int_t thisdata = tpc_rt[i][1][ihit];
           Int_t currently_selected = tpc_rt_s[i][1];
 
@@ -3164,7 +3165,7 @@ for(int i=0; i<8; i++){
         }
 
        for(int j=0; j<4; j++){
-          for(int ihit=0; ihit<(tpc_nhit_dt[i][j] && ihit<64); ihit++){
+          for(int ihit=0; (ihit<tpc_nhit_dt[i][j] && ihit<64); ihit++){
             Int_t thisdata = tpc_dt[i][j][ihit];
             Int_t currently_selected = tpc_dt_s[i][j];
             //bool  checkrange = cTPC_DT[i][j]->Test(thisdata);

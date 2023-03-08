@@ -46,12 +46,12 @@ DSSD: 1
 DSSD: 2
 - Top: 6
 - Bottom: 8
-- LeftLeft: 15
+- LeftLeft: 5
 - LeftRight: 13
 - CentreLeft: 7
-- CentreRight: 5
-- RightLeft: 16
-- RightRight: 14
+- CentreRight: 15
+- RightLeft: 14
+- RightRight: 16
 - X: Junction
 - Y: Ohmic
 
