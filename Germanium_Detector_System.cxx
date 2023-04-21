@@ -121,15 +121,20 @@ void Germanium_Detector_System::Process_MBS(int* pdata){
     
     FEBEX_Add* FEBEX_add  = (FEBEX_Add*) this->pdata;
 
+    //cout << "FEBEX_add: " << std::hex << *this->pdata << endl;
+
   while (FEBEX_add->add == 0xadd){
         this->pdata++;
         FEBEX_add = (FEBEX_Add*) this->pdata;
+
+	//cout << "FEBEX_add: " << *this->pdata << endl;
     }
 
     FEBEX_Header* FEBEXhead  = (FEBEX_Header*) this->pdata;
 
     while(FEBEX_data_loop){
 //printf("ALLpdata=0x%08x\n",*this->pdata++);
+	//cout << "FEBEXhead: " << *this->pdata << endl;
     if (FEBEXhead->ff == 0xFF){ // FEBEX module idicator //
 
             // FEBEXhead->ff;
@@ -137,31 +142,45 @@ void Germanium_Detector_System::Process_MBS(int* pdata){
             // FEBEXhead->three_four;
     
             board_id = FEBEXhead->chan_head;
+
+	    //cout << "board_id: " << board_id << endl;
             
             this->pdata++; // Moves to Channel Size //
             
             FEBEX_Chan_Size *fbx_size=(FEBEX_Chan_Size*) this->pdata;    
+
+	    //cout << "fbx_size: " << *this->pdata << endl;
             
             num_channels = ((fbx_size->chan_size)/4) - 1;
+
+	    //cout << "num_channels: " << num_channels << endl;
     
             if (num_channels == 0) num_modules--;
         
             this->pdata++; // Moves to Event Timestamp //
 
             FEBEX_Half_Time *fbx_hT=(FEBEX_Half_Time*) this->pdata;
+
+	    //cout << "fbx_hT: " << *this->pdata << endl;
         
             this->pdata++; // Moves to rest of Event Timestamp //
             
             FEBEX_Evt_Time *fbx_time=(FEBEX_Evt_Time*) this->pdata;
 
+	    //cout << "fbx_time: " << *this->pdata << endl;
+
             ULong64_t tmp_ext_time = ((fbx_hT->ext_time));
             
             tmp_Sum_Time = (fbx_time->evt_time)+ (tmp_ext_time<<32);//((fbx_hT->ext_time)<<32);
-            //printf("SumTime_pdata=0x%08x\n",*this->pdata);
-            //cout<<"1 tmp_Sum_Time " <<tmp_Sum_Time << " fbx_time->evt_time " <<fbx_time->evt_time <<endl;
+           // printf("SumTime_pdata=0x%08x\n",*this->pdata);
+            
+
+	   // cout<<"1 tmp_Sum_Time " <<tmp_Sum_Time << " fbx_time->evt_time " <<fbx_time->evt_time <<endl;
             this->pdata++; // Moves to Pileup & Hit Pattern //
                         
             FEBEX_Flag_Hits *fbx_flag=(FEBEX_Flag_Hits*) this->pdata;
+
+	    //cout << "fbx_flag: " << *this->pdata << endl;
         
             tmp_Pileup = fbx_flag->pile_flags;
         
@@ -181,11 +200,14 @@ void Germanium_Detector_System::Process_MBS(int* pdata){
         }
     else if (FEBEXhead->ff == 0xF0){ // FEBEX channel indicator //
             this->pdata--; // Moves back to DEADBEEF so channel loop functions properly //
+	    //cout << "FEBEXhead: " << *this->pdata << endl;
 //printf("Here is deadbeef=0x%08x\n",*this->pdata);
             for(int i=0; i<num_channels; ++i){
                 this->pdata++; // Moves to channel header //
 
                 FEBEX_Chan_Header *fbx_Ch=(FEBEX_Chan_Header*) this->pdata;
+
+		//cout << "fbx_Ch: " << *this->pdata << endl;
         
                 int tmp_Ch_ID = fbx_Ch->Ch_ID;
    //     cout<<"tmp_Ch_ID " <<tmp_Ch_ID << endl;
@@ -207,7 +229,10 @@ void Germanium_Detector_System::Process_MBS(int* pdata){
             
       // printf("Lower pdata=0x%08x\n",*this->pdata);
        
-            FEBEX_TS *fbx_Ch_TS=(FEBEX_TS*) this->pdata; 
+            FEBEX_TS *fbx_Ch_TS=(FEBEX_TS*) this->pdata;
+
+	    //cout << "fbx_Ch_TS: " << *this->pdata << endl;
+	    
             ULong64_t tmp_ext_chan_ts = (fbx_Ch->ext_chan_ts);
        
             Chan_Time[fired_FEBEX_amount] = ((fbx_Ch_TS->chan_ts)+(tmp_ext_chan_ts<<32))*10; // in nanoseconds
@@ -220,6 +245,8 @@ void Germanium_Detector_System::Process_MBS(int* pdata){
        this->pdata++; // Moves to Channel Energy //
          //printf("Energy pdata=0x%08x\n",*this->pdata);
             FEBEX_En *fbx_Ch_En=(FEBEX_En*) this->pdata; 
+
+	    //cout << "fbx_Ch_En: " << *this->pdata << std::dec << endl;
             
             Chan_Energy[fired_FEBEX_amount] = fbx_Ch_En->chan_en;
            // cout<<"Chan_Energy[fired_FEBEX_amount] " <<Chan_Energy[fired_FEBEX_amount] << endl;

@@ -19,10 +19,11 @@ echo "z2shift: $z2shift"
 
  #GERMANIUM CALIBRATION
   cp ../Configuration_Files/Germanium/Coefficients/run06_calib.txt ../Configuration_Files/Germanium/Germanium_Energy_Calibration.txt
-  cp ../Configuration_Files/2D_Gates/ID_x4AoQ_IrSetting.txt ../Configuration_Files/2D_Gates/ID_x4AoQ.txt
-  cp ../Configuration_Files/2D_Gates/ID_ZvsAoQ_ir.txt ../Configuration_Files/2D_Gates/ID_ZvsAoQ.txt
-  cp ../Configuration_Files/2D_Gates/ID_dEvsZ_IrSetting.txt ../Configuration_Files/2D_Gates/ID_dEvsZ.txt
-  cp ../Configuration_Files/2D_Gates/ID_dEvsBRho_IrSetting.txt ../Configuration_Files/2D_Gates/ID_dEvsBRho.txt
+  cp ../Configuration_Files/2D_Gates/ID_x4AoQ_Ir.txt ../Configuration_Files/2D_Gates/ID_x4AoQ.txt
+  cp ../Configuration_Files/2D_Gates/ID_ZvsAoQ_Ir.txt ../Configuration_Files/2D_Gates/ID_ZvsAoQ.txt
+  cp ../Configuration_Files/2D_Gates/ID_dEvsZ_Ir.txt ../Configuration_Files/2D_Gates/ID_dEvsZ.txt
+  cp ../Configuration_Files/2D_Gates/ID_dEvsBRho_Ir.txt ../Configuration_Files/2D_Gates/ID_dEvsBRho.txt
+  cp ../Configuration_Files/2D_Gates/ID_Z_Z2_Ir.txt ../Configuration_Files/2D_Gates/ID_Z_Z2.txt
 
 
 

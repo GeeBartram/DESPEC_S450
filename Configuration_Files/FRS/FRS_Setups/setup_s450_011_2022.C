@@ -238,8 +238,8 @@ void setup_s450_011_2022()
 //  id->mhtdc_offset_z_sc22=0.0;
   
 //not related for S8
-  id->offset_z   = -0.7935; //run75
-  id->offset_z2  = -0.9007; //run75
+  id->offset_z   = 0.3292; //run75
+  id->offset_z2  = -0.6184; //run75
   id->offset_z3  = 0.0;
   id->a2AoQCorr = 0.0012; //2020April12 JP
   id->a4AoQCorr = 0.0;

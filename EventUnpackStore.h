@@ -107,6 +107,7 @@ public:
         Int_t     fScalar_fired;
         Int_t     fScalar_ID;
 
+        /*
         UInt_t    fFat_mult;
 
         UInt_t    fFat_SC40mult;
@@ -147,6 +148,7 @@ public:
         Double_t  fFat_QDC_Singles_t_fine[FAT_MAX_VME_CHANNELS];
         UInt_t    fFat_tdcsinglescount;
         UInt_t    fFat_qdcsinglescount;
+        */
 
          Int_t    fGe_fired;
          Int_t    fGe_Detector[Germanium_MAX_HITS];
@@ -185,6 +187,7 @@ public:
 //        Int_t fFat_PMT_Trail_N[FATIMA_TAMEX_CHANNELS];
 //        Double_t fFat_Lead_PMT[FATIMA_TAMEX_CHANNELS][FATIMA_TAMEX_HITS];
 //        Double_t fFat_Trail_PMT[FATIMA_TAMEX_CHANNELS][FATIMA_TAMEX_HITS];
+/*
        Long64_t fFat_Tamex_WR;
        Int_t fFat_Fast_Lead_N[100];
        Int_t fFat_Slow_Lead_N[100];
@@ -194,6 +197,7 @@ public:
        Double_t fFat_Lead_Slow[100][100];
        Double_t fFat_Trail_Fast[100][100];
        Double_t fFat_Trail_Slow[100][100];
+       */
 
          Int_t  fbPlasDetNum_Fast;
        Int_t  fbPlasDetNum_Slow;

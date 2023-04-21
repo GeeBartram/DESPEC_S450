@@ -28,6 +28,7 @@ echo "z2shift: $z2shift"
   cp ../Configuration_Files/2D_Gates/ID_dEvsBRho_Os.txt ../Configuration_Files/2D_Gates/ID_dEvsBRho.txt
   cp ../Configuration_Files/2D_Gates/ID_x4AoQ_Os.txt ../Configuration_Files/2D_Gates/ID_x4AoQ.txt
   cp ../Configuration_Files/2D_Gates/ID_ZvsAoQ_Os.txt ../Configuration_Files/2D_Gates/ID_ZvsAoQ.txt
+  cp ../Configuration_Files/2D_Gates/ID_Z_Z2_Os.txt ../Configuration_Files/2D_Gates/ID_Z_Z2.txt
 
 
 #LIST FILE

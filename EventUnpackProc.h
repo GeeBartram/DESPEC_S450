@@ -42,7 +42,7 @@
 
 #include "Detector_System.cxx"
 #include "AIDA_Detector_System.h"
-#include "FATIMA_Detector_System.h"
+//#include "FATIMA_Detector_System.h"
 #include "Beam_Monitor_Detector_System.h"
 #include "PLASTIC_TAMEX_Detector_System.h"
 #include "Germanium_Detector_System.h"
@@ -79,8 +79,8 @@ using namespace std;
             virtual ~EventUnpackProc();
 						virtual void UserPostLoop();
 			//FATIMA variables
-			double FATgate1_low, FATgate1_high;
-			double FATgate2_low, FATgate2_high;
+			//double FATgate1_low, FATgate1_high;
+			//double FATgate2_low, FATgate2_high;
 
             Bool_t BuildEvent(TGo4EventElement* dest);
              void Process_AIDA_Event(EventUnpackStore* event);
@@ -467,6 +467,7 @@ using namespace std;
 
 			//Fatima histograms
 			//-general
+            /*
 			TH1* hFAT_Esum;
 			TH2* hFAT_gg;
             TH1* hFAT_TDCdt_ref_sum;
@@ -487,6 +488,7 @@ using namespace std;
 			TH1*  hFAT_Eraw_VME[FAT_MAX_VME_CHANNELS];
 
 			TH1* hFAT_TDC_multich[FAT_MAX_VME_CHANNELS];
+            */
 
             TH1 *hScaler_hit_pattern;
 			//Plastic histograms
@@ -503,7 +505,7 @@ using namespace std;
 			TH1**** TOT_TOT;
 			TH1*** TOT_Single;
 			//TH1*** LEAD_LEAD_Total;
-
+/*
 			TH1 *hFatima_test;
 
             TH1 *hFATlead_Coarse[FATIMA_TAMEX_CHANNELS];
@@ -512,6 +514,7 @@ using namespace std;
             TH1 *hFATtrail_Fine[FATIMA_TAMEX_CHANNELS];
 
         int TAMEX_bPlasFat_ID[6][80];
+        */
 			// Germanium Histograms //
 			TH1 *hGe_Raw_E[Germanium_MAX_DETS][Germanium_CRYSTALS];
             TH1 *h_trace[Germanium_MAX_DETS][Germanium_CRYSTALS];
@@ -536,11 +539,11 @@ using namespace std;
             Int_t SubType;
 
             int fingID[4][16];
-            int TAMEX_Fat_ID[FATIMA_TAMEX_MODULES][FATIMA_TAMEX_CHANNELS];
+            //int TAMEX_Fat_ID[FATIMA_TAMEX_MODULES][FATIMA_TAMEX_CHANNELS];
             int TAMEX_bPlast_Det[bPLASTIC_TAMEX_MODULES][bPLASTIC_TAMEX_CHANNELS];
             //int TAMEX_bPlast_Det;
             int TAMEX_bPlast_Chan[bPLASTIC_TAMEX_MODULES][bPLASTIC_TAMEX_CHANNELS];
-			bool PADI_OR_PADIWA,VME_TAMEX_bPlas,VME_TAMEX_Fatima, VME_AND_TAMEX_Fatima;
+			//bool PADI_OR_PADIWA,VME_TAMEX_bPlas,VME_TAMEX_Fatima, VME_AND_TAMEX_Fatima;
 
         ///For AIDA
 
@@ -654,7 +657,7 @@ using namespace std;
 			void get_used_systems();
 
             void load_FingerID_File();
-            void load_FatTamex_Allocationfile();
+            //void load_FatTamex_Allocationfile();
             void load_bPlasticTamex_Allocationfile();
 			void load_PrcID_File();
 
@@ -670,11 +673,11 @@ using namespace std;
             void Make_Plastic_VME_Histos();
             void Fill_Plastic_VME_Histos();
 
-			void Make_FATIMA_Histos();
-			void Fill_FATIMA_Histos(EventUnpackStore* fOutput);
+			//void Make_FATIMA_Histos();
+			//void Fill_FATIMA_Histos(EventUnpackStore* fOutput);
 
-            void Make_FATIMA_TAMEX_Histos();
-            void Fill_FATIMA_TAMEX_Histos();
+            //void Make_FATIMA_TAMEX_Histos();
+            //void Fill_FATIMA_TAMEX_Histos();
 
 			void Make_Germanium_Histos();
 			void Fill_Germanium_Histos();

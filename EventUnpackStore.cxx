@@ -156,7 +156,7 @@ void  EventUnpackStore::Clear(Option_t *t)
   memset(fProcID, -1, sizeof(fProcID));
 ///Fatima VME
 
-   if (fFat_WR != 0) {
+   /*if (fFat_WR != 0) {
         fScalar_fired = -1;
         fScalar_ID = -1;
         fFat_TMCh1mult = 0;
@@ -196,6 +196,7 @@ void  EventUnpackStore::Clear(Option_t *t)
 	        fFat_mult=0;
              }
   fFat_WR = 0;
+  */
       ///Germanium
 //             fGe_Pileup = 0;
 
@@ -228,6 +229,7 @@ void  EventUnpackStore::Clear(Option_t *t)
         }
   fFinger_WR = 0;
         ///Fatima Tamex
+        /*
    if (fFat_Tamex_WR != 0) {
         ZERO_ARRAY(fFat_Fast_Lead_N);
         ZERO_ARRAY(fFat_Slow_Lead_N);
@@ -240,7 +242,7 @@ void  EventUnpackStore::Clear(Option_t *t)
         fFat_Tamex_WR=0;
         }
   fFat_Tamex_WR=0;
-  
+  */
     ///bPlastic Twin Peaks
   if (fbPlas_WR != 0) {
     fbPlasDetNum_Fast=0;

@@ -100,6 +100,10 @@ class EventAnlStore : public TGo4EventElement {
       Bool_t pFRS_Z_Z2_pass_mhtdc[MAX_FRS_GATE];
       Bool_t pFRS_dEvsBRho_pass[MAX_FRS_GATE];
       Bool_t pFRS_dEvsZ_pass[MAX_FRS_GATE];
+      Bool_t pFRS_dEvsZ_x4AoQ_pass[MAX_FRS_GATE];
+      Bool_t pFRS_dEvsZ_x4AoQ_p1_pass[MAX_FRS_GATE];
+      Bool_t pFRS_dEvsZ_x4AoQ_m1_pass[MAX_FRS_GATE];
+
 
 
       //Helena

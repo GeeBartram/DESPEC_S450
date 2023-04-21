@@ -51,28 +51,28 @@ using namespace std;
 FRS_Detector_System::FRS_Detector_System(){
 
 
-     DESPECAnalysis* an = dynamic_cast<DESPECAnalysis*> (TGo4Analysis::Instance());
+  DESPECAnalysis* an = dynamic_cast<DESPECAnalysis*> (TGo4Analysis::Instance());
 
   if (an==0) {
     cout << "!!!  Script should be run in FRS analysis" << endl;
     return;
   }
 
-   frs = dynamic_cast<TFRSParameter*> (an->GetParameter("FRSPar"));
+  frs = dynamic_cast<TFRSParameter*> (an->GetParameter("FRSPar"));
   if (frs==0) {
     cout << "!!!  Parameter FRSPar not found" << endl;
     return;
   }
 
- //  ModSetup = dynamic_cast<TModParameter*>(an->GetParameter("ModPar"));
+  //ModSetup = dynamic_cast<TModParameter*>(an->GetParameter("ModPar"));
 
-   mw = dynamic_cast<TMWParameter*> (an->GetParameter("MWPar"));
+  mw = dynamic_cast<TMWParameter*> (an->GetParameter("MWPar"));
   if (mw==0) {
     cout << "!!!  Parameter MWPar not found" << endl;
     return;
   }
 
-   music = dynamic_cast<TMUSICParameter*> (an->GetParameter("MUSICPar"));
+  music = dynamic_cast<TMUSICParameter*> (an->GetParameter("MUSICPar"));
   if (music==0) {
     cout << "!!!  Parameter MUSICPar not found" << endl;
     return;
@@ -84,64 +84,60 @@ FRS_Detector_System::FRS_Detector_System(){
     return;
   }
 
-   id = dynamic_cast<TIDParameter*> (an->GetParameter("IDPar"));
+  id = dynamic_cast<TIDParameter*> (an->GetParameter("IDPar"));
   if (id==0) {
     cout << "!!!  Parameter IDPar not found" << endl;
     return;
   }
 
-   tpc = dynamic_cast<TTPCParameter*> (an->GetParameter("TPCPar"));
+  tpc = dynamic_cast<TTPCParameter*> (an->GetParameter("TPCPar"));
   if (tpc==0) {
     cout << "!!!  Parameter TPCPar not found" << endl;
     return;
   }
 
-   si = dynamic_cast<TSIParameter*> (an->GetParameter("SIPar"));
+  si = dynamic_cast<TSIParameter*> (an->GetParameter("SIPar"));
   if (si==0) {
     cout << "!!!  Parameter SIPar not found" << endl;
     return;
   }
 
-   mrtof = dynamic_cast<TMRTOFMSParameter*> (an->GetParameter("MRTOFMSPar"));
+  mrtof = dynamic_cast<TMRTOFMSParameter*> (an->GetParameter("MRTOFMSPar"));
   if (mrtof==0) {
     cout << "!!!  Parameter MR-TOF-MSPar not found" << endl;
     return;
   }
 
   //TModParameter* ElecMod = dynamic_cast<TModParameter*>(an->GetParameter("ModPar"));
-  if(frs == nullptr)
-    {
-     std::cout<<"E> FRS parameters not set properly, it is nullptr !"<<std::endl;
-     std::exit(-1);
-    }
+  if(frs == nullptr){
+    std::cout<<"E> FRS parameters not set properly, it is nullptr !"<<std::endl;
+    std::exit(-1);
+  }
   // KW rem
   /*
-#if CALIBRATION_VFTX
+  #if CALIBRATION_VFTX
   for(int mod=0; mod<VFTX_N; mod++)
     for(int ch=0; ch<VFTX_MAX_CHN; ch++)
       Vftx_Stat[mod][ch]=0;
-#endif
+  #endif
 
-    Text_t hist[256];
+  Text_t hist[256];
 
-    for (int module=0; module<VFTX_N; module++) {
+  for (int module=0; module<VFTX_N; module++) {
     for(int channel=0; channel<VFTX_MAX_CHN; channel++){
-    sprintf(hist,"FRS/VFTX_Unpack/VFTX_%i/FineTime/VFTX%i_FineTime_ch%02d",module,module,channel);
-    h1_vftx_ft[module][channel] = new TH1D(hist,hist,1000,0,1000);
-
-
-        }
+      sprintf(hist,"FRS/VFTX_Unpack/VFTX_%i/FineTime/VFTX%i_FineTime_ch%02d",module,module,channel);
+      h1_vftx_ft[module][channel] = new TH1D(hist,hist,1000,0,1000);
     }
+  }
   */
-  // end KW
-  // VFTX parameters
+  //end KW
+  //VFTX parameters
   m_VFTX_Bin2Ps();
-//     ///for VFTX calibration
-//    min_val=0;
-//    max_val=1000;
-//    nbins =1000;
-//     #if LOAD_CALIBRATION_VFTX
-// //
+/////for VFTX calibration
+  //min_val=0;
+  //max_val=1000;
+  //nbins =1000;
+  //#if LOAD_CALIBRATION_VFTX
 //     load_VFTX_Calibration_Files();
 //      #endif
   //  vme2s = new Int_t*[32];           // User TDC (V1290)
@@ -876,7 +872,6 @@ FRS_Detector_System::FRS_Detector_System(){
     // MRTOF part :
 
     Setup_Conditions();
-    FRS_GainMatching();
     WR_Check(ts_mins);
 }
 
@@ -2155,7 +2150,7 @@ void FRS_Detector_System::FRS_Sort(){
         music_t2[i] =0;
         
         id_z=0;
-	id_z2=0;
+	      id_z2=0;
                 }
 
         }
@@ -4773,13 +4768,8 @@ for (int k=0;k<10;k++){
       id_b_z2 = kTRUE;
     }
   }
-//Gainmatch Z
-for(int i=0; i<Z_Shift_array; i++){
-           if(ts_mins >=FRS_WR_a[i] && ts_mins < FRS_WR_b[i]){
-               id_z = id_z - Z1_shift_value[i];
-               id_z2 = id_z2 - Z2_shift_value[i];
-            }
-      }
+
+
       
       
   /****  S4  (MUSIC)   */
@@ -5524,62 +5514,7 @@ void FRS_Detector_System::Setup_Conditions(){
 }
 ///--------------------------------------------------------------------------------
 
-void FRS_Detector_System::FRS_GainMatching(){
-     ifstream    file;
-   string line;
-   Float_t frs_wr_a;
-   Float_t frs_wr_b;
-   Float_t frs_wr_i;
-   Float_t frs_wr_j;
-   Float_t z1_shift_value;
-   Float_t z2_shift_value;
-   Float_t aoq_shift_value;
-   Float_t aoq_shift_tpc_value;
-   Float_t aoq_shift_sci21_value;
-   Float_t aoq_shift_sci22_value;
- 
-   
-   int f=0;
-   int d=0;
-   file.open("Configuration_Files/FRS/Z1_Z2_Shift.txt");
-   while(file.good()){
-    getline(file,line,'\n');
-    if(line[0] == '#') continue;
-    sscanf(line.c_str(),"%f %f %f %f",&frs_wr_a,&frs_wr_b,&z1_shift_value,&z2_shift_value);
-       //if(IsData(file)) file >> FRS_WR_a[i]>> FRS_WR_b[i]>>Z1_shift_value[i] ;
-    FRS_WR_a[f]=frs_wr_a;
-    FRS_WR_b[f]=frs_wr_b;
-    Z1_shift_value[f]=z1_shift_value;
-    Z2_shift_value[f]=z2_shift_value;
-    Z_Shift_array=f;
-       f++;
-       
-     }
 
-  file.close();
-  ///--------------------------------------------------------------------------------
-
-      file.open("Configuration_Files/FRS/AoQ_Shift.txt");
-   while(file.good()){
-       
-    getline(file,line,'\n');
-    if(line[0] == '#') continue;
-    sscanf(line.c_str(),"%f %f %f %f %f",&frs_wr_i,&frs_wr_j,&aoq_shift_tpc_value,&aoq_shift_sci21_value,&aoq_shift_sci22_value);
-
-    FRS_WR_i[d]=frs_wr_i;
-    
-    FRS_WR_j[d]=frs_wr_j;
-    AoQ_shift_TPC_value[d]=aoq_shift_tpc_value;
-    AoQ_shift_Sci21_value[d]=aoq_shift_sci21_value;
-    AoQ_shift_Sci22_value[d]=aoq_shift_sci22_value;
-    AoQ_Shift_array=d;
-       d++;
-       
-     }
-
-  file.close();
-    
-}
 // KW add
 void FRS_Detector_System::VFTX_Readout(Int_t **pdata, int module)
 {

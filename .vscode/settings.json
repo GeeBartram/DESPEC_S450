@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "setup_s450_011_2022.C": "cpp",
+        "setup_s450_012_2022.C": "cpp",
+        "setup_s450_011_2022_Os.C": "cpp",
+        "setup_s450_011_2022_Ir.C": "cpp"
+    }
+}

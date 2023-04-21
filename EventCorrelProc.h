@@ -24,7 +24,7 @@
 #include "AIDA_Headers.h"
 #include "AIDA_Event.h"
 #include "AIDA_Data_Types.h"
-#include "FATIMA_tofCorr.h"
+//#include "FATIMA_tofCorr.h"
 #include "TimingCube.h"  //includes THnSparse
 #include "Go4ConditionsBase/TGo4WinCond.h"
 #include "Go4ConditionsBase/TGo4PolyCond.h"
@@ -106,7 +106,7 @@ class EventCorrelProc : public TGo4EventProcessor {
 
     void get_used_systems();
     void Ge_2DPromptFlashCut();
-    void Fat_2DPromptFlashCut();
+   // void Fat_2DPromptFlashCut();
   //  void Fat_TimeCorrection(EventAnlStore* cInput);
     void Beta_Gates();
 
@@ -116,26 +116,26 @@ class EventCorrelProc : public TGo4EventProcessor {
     void Make_FRS_bPlast_Histos();
 
     void Make_FRS_Prompt_Ge_Histos();
-    void Make_FRS_Prompt_Fat_Histos();
+    //void Make_FRS_Prompt_Fat_Histos();
 
     void Make_FRS_LongIso_Ge_Histos();
-    void Make_FRS_LongIso_Fatima_Histos();
+    //void Make_FRS_LongIso_Fatima_Histos();
 
     void Make_SpillOff_Gamma_Histos();
     void Make_Beta_Gamma_Histos();
     void Make_Timemachine_Histos();
 
     //
-    void Make_FRS_AIDA_FATIMA_Histos();
+    //void Make_FRS_AIDA_FATIMA_Histos();
 
     void Process_FRS_AIDA(EventAnlStore* cInput, EventCorrelStore* cOutput);
     void Process_FRS_bPlast(EventAnlStore* cInput, EventCorrelStore* cOutput);
 
-    void Process_FRS_Prompt_Fat(EventAnlStore* cInput, EventCorrelStore* cOutput);
+   // void Process_FRS_Prompt_Fat(EventAnlStore* cInput, EventCorrelStore* cOutput);
     void Process_FRS_Prompt_Ge(EventAnlStore* cInput, EventCorrelStore* cOutput);
 
     void Process_FRS_LongIso_Ge(EventAnlStore* cInput, EventCorrelStore* cOutput);
-    void Process_FRS_LongIso_Fat(EventAnlStore* cInput, EventCorrelStore* cOutput);
+    //void Process_FRS_LongIso_Fat(EventAnlStore* cInput, EventCorrelStore* cOutput);
 
     void Process_SpillOff_Gammas(EventAnlStore* cInput, EventCorrelStore* cOutput);
 
@@ -144,18 +144,18 @@ class EventCorrelProc : public TGo4EventProcessor {
 
     //FATIMA tof corrected:
     //Includes FATIMA_tofCorrection!
-    void Process_FRS_AIDA_FATIMA (EventAnlStore* cInput, EventCorrelStore* cOutput);
-    FATIMA_tofCorr *fatTC;
+   // void Process_FRS_AIDA_FATIMA (EventAnlStore* cInput, EventCorrelStore* cOutput);
+   // FATIMA_tofCorr *fatTC;
     double ggtarray[3]; //Will be needed for filling the cube.
     THnSparseD *ggt_nocorr;
     THnSparseD *ggt_tofcorr;
-    int    FAT_dt_FRS_gate;
-    double Fat_t1;
-    double Fat_t2;
-    double Fat_e1;
-    double Fat_e2;
-    int    Fat_n1;
-    int    Fat_n2;
+   // int    FAT_dt_FRS_gate;
+   // double Fat_t1;
+    //double Fat_t2;
+    //double Fat_e1;
+    //double Fat_e2;
+    //int    Fat_n1;
+    //int    Fat_n2;
 
     TGo4WinCond* MakeWindowCond(const char* foldername,
                   const char* condname,
@@ -196,7 +196,7 @@ class EventCorrelProc : public TGo4EventProcessor {
         double GeE_Prm_Long[Germanium_MAX_HITS];
         double GeT_Prm_Long[Germanium_MAX_HITS];
         Long64_t ts;
-
+/*
         std::vector<float> tag_fat_all;
         std::vector<Long64_t> ts_fat_all;
 
@@ -217,6 +217,7 @@ class EventCorrelProc : public TGo4EventProcessor {
         double FatE_Prm_Long[FAT_VME_MAX_MULTI];
         double FatT_Prm_Long[FAT_VME_MAX_MULTI];
         Long64_t ts_fat;
+        */
         long long lastAIDAWR;
         long long lastAIDAdecayWR;
 
@@ -227,25 +228,25 @@ class EventCorrelProc : public TGo4EventProcessor {
 
         TH1 *hAida_Implant_deadtime;
         TH1 *hAida_Decay_deadtime;
-        TH1 *hFatVME_TMdT;
-        TH1 *hFatTAMEX_TMdT;
+        //TH1 *hFatVME_TMdT;
+        //TH1 *hFatTAMEX_TMdT;
         TH1 *hGe_TMdT;
         TH1 *hbPlastic_TMdT;
         TH1 *hAida_TMdT;
 
         TH1 *hAIDA_WRTM_FRS;
         TH1 *hAIDA_WRTM_Ge;
-        TH1 *hAIDA_WRTM_FatVME;
-        TH1 *hAIDA_WRTM_FatTAMEX;
+        //TH1 *hAIDA_WRTM_FatVME;
+        //TH1 *hAIDA_WRTM_FatTAMEX;
         TH1 *hAIDA_WRTM_bPlast;
 
-        TH2 *hFatVME_FatTAMEX_TM;
-        TH2 *hFatVME_Ge_TM;
-        TH2 *hFatVME_bPlast_TM;
-        TH2 *hFatVME_AIDA_TM;
-        TH2 *hFatTAMEX_Ge_TM;
-        TH2 *hFatTAMEX_bPlast_TM;
-        TH2 *hFatTAMEX_AIDA_TM;
+        //TH2 *hFatVME_FatTAMEX_TM;
+        //TH2 *hFatVME_Ge_TM;
+        //TH2 *hFatVME_bPlast_TM;
+        //TH2 *hFatVME_AIDA_TM;
+        //TH2 *hFatTAMEX_Ge_TM;
+        //TH2 *hFatTAMEX_bPlast_TM;
+        //TH2 *hFatTAMEX_AIDA_TM;
         TH2 *hGe_bPlast_TM;
         TH2 *hGe_AIDA_TM;
         TH2 *hAIDA_bPlast_TM;
@@ -297,47 +298,11 @@ class EventCorrelProc : public TGo4EventProcessor {
       TGo4WinCond  *fconHis1;
       TGo4WinCond  *fWinCon1;
 
-      TH1 *hA_implant_FatdT;
-      TH1 *hA_implant_FatE;
-      TH2 *hA_implant_FatdT_FatE;
-
-        Long64_t Fat_time_mins_ZAoQ;
-
-      TH1 *hA_FRSWR_FatWR;
-      TH1 *hA_FRS_FatE;
-      TH1 *hA_FRS_ZAoQ_FatE[MAX_FRS_GATE];
-      TH2 *hA_FRS_ZAoQ_FatEvsT[MAX_FRS_GATE];
-      TH2 *hA_FRS_ZAoQ_FatE1vsE2[MAX_FRS_GATE];
-      TH1 *hFat_Energy_GainMonitor_188Ta;
-
-      TH1 *hA_FRS_Z1Z2_X2AoQ_FatE[MAX_FRS_GATE];
-      TH2 *hA_FRS_Z1Z2_X2AoQ_FatEvsT[MAX_FRS_GATE];
-      TH2 *hA_FRS_Z1Z2_X2AoQ_FatE1vsE2[MAX_FRS_GATE];
-      TH1 *hA_FRS_Z1Z2_X4AoQ_FatE[MAX_FRS_GATE];
-      TH2 *hA_FRS_Z1Z2_X4AoQ_FatEvsT[MAX_FRS_GATE];
-      TH2 *hA_FRS_Z1Z2_X4AoQ_FatE1vsE2[MAX_FRS_GATE];
-
-      ///Prompt fatima LT analysis
-      TH1 *hA_FRS_Fat_LT1_start_stop;
-      TH1 *hA_FRS_Fat_LT1_start_stop_ns;
-      TH1 *hA_FRS_Fat_LT2_start_stop;
-      TH1 *hA_FRS_Fat_LT2_start_stop_ns;
-      TH1 *hA_FRS_Fat_LT3_start_stop;
-      TH1 *hA_FRS_Fat_LT3_start_stop_ns;
-
-      TH1 *hA_FRS_Fat_LT1_stop_start;
-      TH1 *hA_FRS_Fat_LT1_stop_start_ns;
-      TH1 *hA_FRS_Fat_LT2_stop_start;
-      TH1 *hA_FRS_Fat_LT2_stop_start_ns;
-      TH1 *hA_FRS_Fat_LT3_stop_start;
-      TH1 *hA_FRS_Fat_LT3_stop_start_ns;
-
-
-      TH1 *hA_FRS_Z1Z2_X2AoQX4AoQ_FatE[MAX_FRS_GATE];
 
       TH1 *hA_FRSWR_GeWR;
       TH1 *hA_FRS_GeE;
       TH2 *hA_FRS_ZAoQ_GeEvsT_all;
+      TH2 *hA_Ge_Gamma_Gamma_all;
       TH1 *hA_FRS_ZAoQ_GeE[MAX_FRS_GATE];
       TH2 *hA_FRS_ZAoQ_GeEvsT[MAX_FRS_GATE];
       TH1 *hA_FRS_Z1Z2_GeE[MAX_FRS_GATE];
@@ -349,6 +314,24 @@ class EventCorrelProc : public TGo4EventProcessor {
       TH1 *hA_FRS_X4AoQ_GeE[MAX_FRS_GATE];
       TH2 *hA_FRS_X4AoQ_GeEvsT[MAX_FRS_GATE];
 
+
+
+      TH1 *hA_FRS_dEvsZ_X4AoQ_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_GeEvsT[MAX_FRS_GATE];
+      TH1 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_GeEvsT[MAX_FRS_GATE];
+
+      TH1 *hA_FRS_dEvsZ_X4AoQ_p1_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_p1_GeEvsT[MAX_FRS_GATE];
+      TH1 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_p1_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_p1_GeEvsT[MAX_FRS_GATE];
+
+      TH1 *hA_FRS_dEvsZ_X4AoQ_m1_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_m1_GeEvsT[MAX_FRS_GATE];
+      TH1 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_m1_GeE[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_Z1Z2_m1_GeEvsT[MAX_FRS_GATE];
+
+
      // TH2 *hA_FRS_GeEvsT;
       
       TH2 *hA_FRS_ZAoQ_GeE1_GeE2[MAX_FRS_GATE];
@@ -357,24 +340,31 @@ class EventCorrelProc : public TGo4EventProcessor {
       TH2 *hA_FRS_Z1Z2_X4AoQ_GeE1_GeE2[MAX_FRS_GATE];
       TH2 *hA_FRS_X4AoQ_GeE1_GeE2[MAX_FRS_GATE];
 
+      
+      TH2 *hA_FRS_dEvsZ_X4AoQ_GeE1_GeE2[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_p1_GeE1_GeE2[MAX_FRS_GATE];
+      TH2 *hA_FRS_dEvsZ_X4AoQ_m1_GeE1_GeE2[MAX_FRS_GATE];
+      
+
+
 
       TH1 *hA_FRS_ZAoQ_GeE_LongIso;
       TH2 *hA_FRS_GeEvsT_LongIsoGated;
       TH2 *hA_FRS_GeE1vsGeE2_LongIsoGated;
-
+/*
       TH1 *hA_FRS_PID_FatE_LongIso;
       TH2 *hA_FRS_FatEvsT_LongIsoGated;
       TH2 *hA_FRS_FatE1vsFatE2_LongIsoGated;
-
+*/
       //Spill off/on Beta-Gamma
       TH1 *hSpillOff_Germanium;
       TH2 *hSpillOff_Germanium_gammagamma;
       TH1 *hSpillOn_Germanium;
-      TH1 *hbPlast_SpillOff_Fatima;
-      TH2 *hbPlast_SpillOff_Fatima_gammagamma;
+     // TH1 *hbPlast_SpillOff_Fatima;
+      //TH2 *hbPlast_SpillOff_Fatima_gammagamma;
       TH2 *hbPlast_SpillOff_Germanium_gammagamma;
       TH1 *hbPlast_SpillOn_Germanium;
-      TH2 *hbPlast_SpillOff_Fatima_GamGam;
+      //TH2 *hbPlast_SpillOff_Fatima_GamGam;
       TH1 *hbPlast_SpillOff_Germanium;
       TH2 *hbPlast_SpillOff_Germanium_GamGam;
       TH1 *hbPlas_ToT_SpillOff[4][bPLASTIC_CHAN_PER_DET];
@@ -385,14 +375,14 @@ class EventCorrelProc : public TGo4EventProcessor {
       TH1 *hAidaImpDecdT;
       TH1 *hAida_Dec_Ge_dT;
       TH1 *hAida_Dec_bPlas_dT;
-      TH1 *hAida_Dec_Fatima_dT;
+     // TH1 *hAida_Dec_Fatima_dT;
       TH1 *hDecPIDGated[MAX_FRS_GATE];
       TH1 *hGe_BetaGamma_E[MAX_FRS_GATE];
       TH1 *hGe_BetaGamma_GeE1_GeE2[MAX_FRS_GATE];
       TH1 *hGe_BetaGamma_dT[MAX_FRS_GATE];
       TH2 *hGe_BetaGamma_EdT[MAX_FRS_GATE];
       TH1 *hGe_BetaGamma_GeE1_GatedTrans;
-
+/*
       TH1 *hFat_LT1_start_stop;
       TH1 *hFat_LT1_start_stop_ns;
       TH1 *hFat_LT2_start_stop;
@@ -405,38 +395,38 @@ class EventCorrelProc : public TGo4EventProcessor {
 
       TH1 *hFat_95Rh_All_LT;
       TH1 *hFat_BetaGamma_E[MAX_FRS_GATE];
-      TH2 *hFat_BetaGamma_E1_E2[MAX_FRS_GATE];
+      TH2 *hFat_BetaGamma_E1_E2[MAX_FRS_GATE];*/
 
     //  bool AIDA_implantation_gate;
 
       TGo4PolyCond  *cGe_EdT_cut[MAX_FRS_GATE];
-      TGo4PolyCond  *cFat_EdT_cut[MAX_FRS_GATE];
+      //TGo4PolyCond  *cFat_EdT_cut[MAX_FRS_GATE];
 
       int event_number;
       int Used_Systems[7];
       Long64_t AIDA_WR;
       Long64_t FRS_WR;
       Long64_t bPLAS_WR;
-      Long64_t FAT_WR;
+      //Long64_t FAT_WR;
       Long64_t Ge_WR;
       Long64_t dT_AIDA_FRS;
       Long64_t dT_AIDA_bPlast;
       Long64_t dT_FRS_bPlast;
       Long64_t dT_AIDA_Ge;
-      Long64_t dT_AIDA_Fat;
+      //Long64_t dT_AIDA_Fat;
       TSCNParameter *fParam1;
 
       Int_t Ge_dT_cut_num;
       Float_t X_Ge_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints],Y_Ge_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints];
 
-      Int_t Fat_dT_cut_num;
-      Float_t X_Fat_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints],Y_Fat_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints];
+     // Int_t Fat_dT_cut_num;
+     // Float_t X_Fat_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints],Y_Fat_EdT_cut[MAX_FRS_GATE][MAX_FRS_PolyPoints];
 
       Int_t C_ZAoQgnum,C_Z1Z2gnum,C_X2AoQgnum,C_X4AoQgnum,C_dEdeggnum;
       Float_t C_X_ZAoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints],C_Y_ZAoQ[MAX_FRS_GATE][MAX_FRS_PolyPoints];
 
-      Int_t Fat_det_num;
-      Float_t fat_timecorrection[FAT_MAX_VME_CHANNELS];
+    //  Int_t Fat_det_num;
+     // Float_t fat_timecorrection[FAT_MAX_VME_CHANNELS];
 
 
 
@@ -445,8 +435,8 @@ class EventCorrelProc : public TGo4EventProcessor {
        Long64_t aida_imptime[3][128][128];
        Long64_t aida_imptime_FRS_gated[3][128][128];
 
-       Double_t FatimaVME_TimeMachine_dT[10];
-       Double_t FatimaTAMEX_TimeMachine_dT[10];
+//       Double_t FatimaVME_TimeMachine_dT[10];
+  //     Double_t FatimaTAMEX_TimeMachine_dT[10];
        Long64_t Germanium_TimeMachine_dT;
        Double_t bPlast_TimeMachine_dT[10];
        Double_t AIDA_TimeMachine_dT;

@@ -38,29 +38,27 @@
 #include "./libGo4UserAnalysisfaaa8bfea0_dictUmbrella.h"
 #include "./AIDA_Headers.h"
 #include "./FEBEX.h"
-#include "./TAMEX.h"
+#include "./libGo4UserAnalysisdabce64e39_dictUmbrella.h"
 #include "./DESPECAnalysis.h"
 #include "./libGo4UserAnalysis22442843c1_dictContent.h"
 #include "./AIDA_Processor.h"
-#include "./FATIMA_Energy_Calibration.h"
 #include "./TFRSParameter.h"
 #include "./libGo4UserAnalysisbba950cd23_dictContent.h"
-#include "./QDC_751.h"
+#include "./libGo4UserAnalysis19dcaf8b3d_dictContent.h"
 #include "./WR_Structure.h"
-#include "./PLASTIC_TWINPEAKS_Detector_System.h"
+#include "./Germanium_Detector_System.h"
+#include "./QDC_751.h"
 #include "./TFRSVftxSetting.h"
 #include "./CalibParameter.h"
 #include "./EventCorrelProc.h"
-#include "./Beam_Monitor_Detector_System.h"
 #include "./FRS_Detector_System.h"
+#include "./PLASTIC_TWINPEAKS_Detector_System.h"
 #include "./FINGER_Calibrator.h"
-#include "./FATIMA_Time_Calibration.h"
+#include "./libGo4UserAnalysis310cbe4eac_dictContent.h"
 #include "./EventCorrelStore.h"
 #include "./FINGER_Detector_System.h"
 #include "./AIDA_Detector_System.h"
-#include "./libGo4UserAnalysis3aec455944_dictContent.h"
 #include "./AIDA_Decay_Event_Store.h"
-#include "./FATIMA_Detector_System.h"
 #include "./AIDA_Event.h"
 #include "./EventAnlProc.h"
 #include "./EventAnlStore.h"
@@ -68,6 +66,7 @@
 #include "./Timestamp.h"
 #include "./AIDA_Data_Types.h"
 #include "./EventUnpackProc.h"
+#include "./TAMEX.h"
 #include "./TDC_1290.h"
 #include "./libGo4UserAnalysis55eea4c34e_dictUmbrella.h"
 #include "./EventUnpackStore.h"
@@ -76,16 +75,15 @@
 #include "./White_Rabbit.h"
 #include "./Germanium_Energy_Calibration.h"
 #include "./QDC.h"
-#include "./FATIMA_TAMEX_Detector_System.h"
+#include "./libGo4UserAnalysis3aec455944_dictContent.h"
+#include "./TAidaConfiguration.h"
 #include "./TimingCube.h"
 #include "./PLASTIC_TAMEX_Calibrator.h"
-#include "./Germanium_Detector_System.h"
-#include "./FATIMA_TAMEX_Calibrator.h"
-#include "./TAidaConfiguration.h"
+#include "./libGo4UserAnalysis4e813a7a54_dictUmbrella.h"
 #include "./EventUnpackFact.h"
 #include "./Raw_Event.h"
 #include "./CorrelParameter.h"
-#include "./FATIMA_tofCorr.h"
+#include "./Beam_Monitor_Detector_System.h"
 
 // Header files passed via #pragma extra_include
 
@@ -4391,29 +4389,27 @@ namespace {
 "./libGo4UserAnalysisfaaa8bfea0_dictUmbrella.h",
 "./AIDA_Headers.h",
 "./FEBEX.h",
-"./TAMEX.h",
+"./libGo4UserAnalysisdabce64e39_dictUmbrella.h",
 "./DESPECAnalysis.h",
 "./libGo4UserAnalysis22442843c1_dictContent.h",
 "./AIDA_Processor.h",
-"./FATIMA_Energy_Calibration.h",
 "./TFRSParameter.h",
 "./libGo4UserAnalysisbba950cd23_dictContent.h",
-"./QDC_751.h",
+"./libGo4UserAnalysis19dcaf8b3d_dictContent.h",
 "./WR_Structure.h",
-"./PLASTIC_TWINPEAKS_Detector_System.h",
+"./Germanium_Detector_System.h",
+"./QDC_751.h",
 "./TFRSVftxSetting.h",
 "./CalibParameter.h",
 "./EventCorrelProc.h",
-"./Beam_Monitor_Detector_System.h",
 "./FRS_Detector_System.h",
+"./PLASTIC_TWINPEAKS_Detector_System.h",
 "./FINGER_Calibrator.h",
-"./FATIMA_Time_Calibration.h",
+"./libGo4UserAnalysis310cbe4eac_dictContent.h",
 "./EventCorrelStore.h",
 "./FINGER_Detector_System.h",
 "./AIDA_Detector_System.h",
-"./libGo4UserAnalysis3aec455944_dictContent.h",
 "./AIDA_Decay_Event_Store.h",
-"./FATIMA_Detector_System.h",
 "./AIDA_Event.h",
 "./EventAnlProc.h",
 "./EventAnlStore.h",
@@ -4421,6 +4417,7 @@ namespace {
 "./Timestamp.h",
 "./AIDA_Data_Types.h",
 "./EventUnpackProc.h",
+"./TAMEX.h",
 "./TDC_1290.h",
 "./libGo4UserAnalysis55eea4c34e_dictUmbrella.h",
 "./EventUnpackStore.h",
@@ -4429,16 +4426,15 @@ namespace {
 "./White_Rabbit.h",
 "./Germanium_Energy_Calibration.h",
 "./QDC.h",
-"./FATIMA_TAMEX_Detector_System.h",
+"./libGo4UserAnalysis3aec455944_dictContent.h",
+"./TAidaConfiguration.h",
 "./TimingCube.h",
 "./PLASTIC_TAMEX_Calibrator.h",
-"./Germanium_Detector_System.h",
-"./FATIMA_TAMEX_Calibrator.h",
-"./TAidaConfiguration.h",
+"./libGo4UserAnalysis4e813a7a54_dictUmbrella.h",
 "./EventUnpackFact.h",
 "./Raw_Event.h",
 "./CorrelParameter.h",
-"./FATIMA_tofCorr.h",
+"./Beam_Monitor_Detector_System.h",
 0
     };
     static const char* includePaths[] = {
@@ -4498,29 +4494,27 @@ class __attribute__((annotate("$clingAutoload$./EventAnlProc.h")))  EventAnlProc
 #include "./libGo4UserAnalysisfaaa8bfea0_dictUmbrella.h"
 #include "./AIDA_Headers.h"
 #include "./FEBEX.h"
-#include "./TAMEX.h"
+#include "./libGo4UserAnalysisdabce64e39_dictUmbrella.h"
 #include "./DESPECAnalysis.h"
 #include "./libGo4UserAnalysis22442843c1_dictContent.h"
 #include "./AIDA_Processor.h"
-#include "./FATIMA_Energy_Calibration.h"
 #include "./TFRSParameter.h"
 #include "./libGo4UserAnalysisbba950cd23_dictContent.h"
-#include "./QDC_751.h"
+#include "./libGo4UserAnalysis19dcaf8b3d_dictContent.h"
 #include "./WR_Structure.h"
-#include "./PLASTIC_TWINPEAKS_Detector_System.h"
+#include "./Germanium_Detector_System.h"
+#include "./QDC_751.h"
 #include "./TFRSVftxSetting.h"
 #include "./CalibParameter.h"
 #include "./EventCorrelProc.h"
-#include "./Beam_Monitor_Detector_System.h"
 #include "./FRS_Detector_System.h"
+#include "./PLASTIC_TWINPEAKS_Detector_System.h"
 #include "./FINGER_Calibrator.h"
-#include "./FATIMA_Time_Calibration.h"
+#include "./libGo4UserAnalysis310cbe4eac_dictContent.h"
 #include "./EventCorrelStore.h"
 #include "./FINGER_Detector_System.h"
 #include "./AIDA_Detector_System.h"
-#include "./libGo4UserAnalysis3aec455944_dictContent.h"
 #include "./AIDA_Decay_Event_Store.h"
-#include "./FATIMA_Detector_System.h"
 #include "./AIDA_Event.h"
 #include "./EventAnlProc.h"
 #include "./EventAnlStore.h"
@@ -4528,6 +4522,7 @@ class __attribute__((annotate("$clingAutoload$./EventAnlProc.h")))  EventAnlProc
 #include "./Timestamp.h"
 #include "./AIDA_Data_Types.h"
 #include "./EventUnpackProc.h"
+#include "./TAMEX.h"
 #include "./TDC_1290.h"
 #include "./libGo4UserAnalysis55eea4c34e_dictUmbrella.h"
 #include "./EventUnpackStore.h"
@@ -4536,16 +4531,15 @@ class __attribute__((annotate("$clingAutoload$./EventAnlProc.h")))  EventAnlProc
 #include "./White_Rabbit.h"
 #include "./Germanium_Energy_Calibration.h"
 #include "./QDC.h"
-#include "./FATIMA_TAMEX_Detector_System.h"
+#include "./libGo4UserAnalysis3aec455944_dictContent.h"
+#include "./TAidaConfiguration.h"
 #include "./TimingCube.h"
 #include "./PLASTIC_TAMEX_Calibrator.h"
-#include "./Germanium_Detector_System.h"
-#include "./FATIMA_TAMEX_Calibrator.h"
-#include "./TAidaConfiguration.h"
+#include "./libGo4UserAnalysis4e813a7a54_dictUmbrella.h"
 #include "./EventUnpackFact.h"
 #include "./Raw_Event.h"
 #include "./CorrelParameter.h"
-#include "./FATIMA_tofCorr.h"
+#include "./Beam_Monitor_Detector_System.h"
 
 #undef  _BACKWARD_BACKWARD_WARNING_H
 )DICTPAYLOAD";
